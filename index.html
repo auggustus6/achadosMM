@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AchadosMM | Ofertas para farmácias de manipulação</title>
+<meta name="theme-color" content="#0C6A39">
+<meta name="description" content="Ofertas do Mercado Livre, Shopee e Amazon com o que a farmácia de manipulação usa no dia a dia. Curadoria diária da MandaManipular.com.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AchadosMM | Ofertas para farmácias de manipulação">
+<meta property="og:description" content="O que a farmácia usa todo dia, com desconto de verdade. Curadoria diária da MandaManipular.com.">
+<meta property="og:image" content="/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F4EE; --card:#FFFFFF; --ink:#0B130F; --ink2:#46534A; --muted:#7A857D;
+  --line:#E2DCC5; --line2:#ECE7D6; --green:#0C6A39; --green-d:#08502B; --green-s:#E4EFE7;
+  --amber:#B7791F; --amber-s:#F7EBD3; --cream:#EFEADB;
+  --r:18px; --shadow:0 1px 2px rgba(11,19,15,.04),0 8px 24px -12px rgba(11,19,15,.12);
+  --head:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:96px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+
+/* Header */
+header{position:sticky;top:0;z-index:30;background:rgba(246,244,238,.92);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.mark{width:34px;height:34px;border-radius:10px;background:var(--green);position:relative;display:grid;place-items:center;flex-shrink:0}
+.mark:after{content:"";position:absolute;inset:8px;border:2px solid #fff;border-radius:50%}
+.mark b{position:relative;z-index:1;font-family:var(--head);color:#fff;font-size:10px;font-weight:800;letter-spacing:-.02em}
+.logo-t{display:flex;flex-direction:column;line-height:1.05}
+.logo-t strong{font-family:var(--head);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo-t strong span{color:var(--green)}
+.logo-t small{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.search{flex:1;display:flex;align-items:center;gap:10px;background:var(--cream);border:1px solid transparent;border-radius:999px;padding:0 16px;height:44px;max-width:560px;margin:0 auto;transition:.15s}
+.search:focus-within{background:#fff;border-color:var(--green)}
+.search svg{flex-shrink:0;color:var(--muted)}
+.search input{border:0;background:transparent;outline:0;font:inherit;width:100%;color:var(--ink)}
+.btn-group{display:flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:999px;padding:0 6px 0 16px;height:44px;font-weight:600;white-space:nowrap;flex-shrink:0;background:#fff}
+.btn-group .count{background:var(--green);color:#fff;border-radius:999px;min-width:26px;height:26px;display:grid;place-items:center;font-size:12px;font-weight:700;padding:0 7px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 10px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;font-size:14px;font-weight:500;color:var(--ink2);display:inline-flex;align-items:center;gap:7px}
+.tab svg{width:15px;height:15px}
+.tab:hover{border-color:var(--ink2);color:var(--ink)}
+.tab.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* Hero */
+.hero{margin-top:24px;display:grid;grid-template-columns:1.15fr .85fr;border-radius:28px;overflow:hidden;background:var(--cream);border:1px solid var(--line)}
+.hero-l{padding:48px 44px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;color:var(--ink2)}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(34px,5vw,56px);line-height:.98;letter-spacing:-.035em;margin:0 0 18px}
+h1 em,h2 em{font-family:var(--body);font-style:italic;font-weight:500;color:var(--green);letter-spacing:-.02em}
+.lead{font-size:17px;color:var(--ink2);max-width:520px;margin:0 0 26px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;font-weight:600;border:1.5px solid var(--ink);transition:.15s}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.dark:hover{background:var(--green);border-color:var(--green)}
+.btn.green{background:var(--green);border-color:var(--green);color:#fff}
+.btn.green:hover{background:var(--green-d)}
+.btn.ghost:hover{background:#fff}
+.hero-r{background:linear-gradient(160deg,#E9E3CF 0%,#DCE9DF 100%);padding:32px;display:flex;align-items:center;justify-content:center;position:relative;min-height:360px}
+.feat{background:#fff;border-radius:22px;box-shadow:var(--shadow);width:100%;max-width:340px;overflow:hidden}
+.feat .thumb{aspect-ratio:16/10;border-radius:0}
+.feat-b{padding:18px 20px 20px}
+.feat-b h3{font-family:var(--head);font-size:20px;line-height:1.15;margin:6px 0 10px;letter-spacing:-.015em}
+.dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 12px;font-size:12px;color:var(--ink2);box-shadow:var(--shadow)}
+.dots span{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.dots span.on{background:var(--green)}
+.cat-mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:360px}
+.cat-mosaic a{background:#fff;border-radius:16px;padding:14px 8px;text-align:center;font-size:12px;font-weight:600;color:var(--ink2);display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:var(--shadow);transition:.15s}
+.cat-mosaic a:hover{transform:translateY(-2px);color:var(--green)}
+.cat-mosaic svg{width:26px;height:26px;color:var(--green)}
+
+/* Value */
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.value{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.value .ic{width:34px;height:34px;border-radius:10px;background:var(--green-s);color:var(--green);display:grid;place-items:center;flex-shrink:0}
+.value .ic svg{width:18px;height:18px}
+.value b{display:block;font-size:14px}
+.value p{margin:2px 0 0;font-size:13px;color:var(--ink2);line-height:1.4}
+
+/* Sections */
+section.blk{margin-top:52px}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+h2{font-family:var(--head);font-weight:800;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.03em;line-height:1.05;margin:0}
+.sec-h p{margin:6px 0 0;color:var(--ink2);font-size:14px}
+.more{font-weight:600;font-size:14px;white-space:nowrap;border-bottom:1.5px solid currentColor;padding-bottom:1px}
+.more:hover{color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+/* Card */
+.card{background:var(--card);border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.thumb{position:relative;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:contain;background:#fff;padding:14px}
+.thumb .ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--green);opacity:.9}
+.thumb .ph svg{width:46px;height:46px;stroke-width:1.4}
+.thumb .ph span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.badge{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 9px;line-height:1.2}
+.b-best{background:var(--amber);color:#fff}
+.b-new{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.b-tec{background:var(--green);color:#fff}
+.off{position:absolute;right:10px;bottom:10px;background:var(--ink);color:#fff;font-weight:700;font-size:13px;border-radius:999px;padding:4px 10px}
+.c-body{padding:14px 16px 14px;display:flex;flex-direction:column;flex:1}
+.store{align-self:flex-start;font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px;margin-bottom:8px}
+.st-ml{background:#FFF1A8;color:#3A3200}
+.st-sh{background:#FFE3DA;color:#B4351A}
+.st-am{background:#E7EEF7;color:#1F3B5C}
+.cat-l{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.card h3{font-size:15px;font-weight:600;line-height:1.3;margin:0 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.why{font-size:13px;color:var(--ink2);line-height:1.4;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sold{font-size:12.5px;color:var(--muted);margin:0 0 6px}
+.ship{font-size:12px;color:var(--green);font-weight:600;margin:0 0 6px}
+.buy{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding-top:8px}
+.price s{display:block;font-size:12.5px;color:var(--muted)}
+.price b{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.price .np{font-size:13px;color:var(--ink2);line-height:1.3;display:block;max-width:120px}
+.go{background:var(--ink);color:#fff;border-radius:999px;height:38px;padding:0 15px;display:inline-flex;align-items:center;font-weight:600;font-size:13.5px;white-space:nowrap;flex-shrink:0;transition:.15s}
+.go:hover{background:var(--green)}
+.seen{font-size:11.5px;color:var(--muted);margin:10px 0 0}
+
+/* Banner / CTA */
+.notice{background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:26px;display:flex;gap:16px;align-items:center}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+.notice .ic svg{width:22px;height:22px}
+.thumb.noimg{aspect-ratio:4/3}
+.notice .ic{width:44px;height:44px;border-radius:12px;background:var(--amber-s);color:var(--amber);display:grid;place-items:center;flex-shrink:0}
+.notice b{font-size:16px}
+.notice p{margin:3px 0 0;color:var(--ink2);font-size:14px}
+.cta-band{margin-top:56px;background:var(--green);color:#fff;border-radius:28px;padding:44px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.cta-band:after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border:34px solid rgba(255,255,255,.07);border-radius:50%}
+.cta-band h2{color:#fff}
+.cta-band h2 em{color:#BFE3CB}
+.cta-band p{color:rgba(255,255,255,.82);margin:12px 0 0;font-size:16px}
+.cta-band .btn{background:#fff;color:var(--ink);border-color:#fff;position:relative;z-index:1}
+.cta-band .hint{font-size:14px;color:rgba(255,255,255,.8);margin-top:10px;position:relative;z-index:1}
+.ask{margin-top:16px;background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.ask b{font-family:var(--head);font-size:20px;letter-spacing:-.02em}
+.ask p{margin:4px 0 0;color:var(--ink2);font-size:14px}
+
+/* Category view */
+.view-h{margin-top:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.view-h h1{font-size:clamp(30px,4vw,44px);margin:6px 0 4px}
+.view-h p{margin:0;color:var(--ink2)}
+.sort{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}
+.sort select{font:inherit;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;color:var(--ink)}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--ink2);margin-top:22px}
+.back:hover{color:var(--green)}
+.empty{grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--ink2);background:#fff;border-radius:var(--r);border:1px dashed var(--line)}
+
+/* Footer */
+footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;color:var(--ink2);font-size:13.5px}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+.foot h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 10px;font-weight:500}
+.foot p{margin:0 0 8px;line-height:1.55}
+.foot a{border-bottom:1px solid var(--line)}
+.foot a:hover{color:var(--green);border-color:var(--green)}
+.legal{margin-top:24px;padding-top:16px;border-top:1px solid var(--line2);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* Floating bar */
+.float{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:40;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 10px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 32px -8px rgba(11,19,15,.45);width:max-content;max-width:calc(100% - 24px)}
+.float .n{background:var(--amber);color:#fff;font-weight:700;border-radius:999px;min-width:34px;height:34px;display:grid;place-items:center;font-size:13px;padding:0 8px;flex-shrink:0}
+.float .t{line-height:1.25;min-width:0}
+.float .t b{font-size:14px;display:block}
+.float .t small{font-size:12px;color:rgba(255,255,255,.65)}
+.float .btn{height:40px;background:#fff;color:var(--ink);border-color:#fff;font-size:14px;padding:0 16px;flex-shrink:0}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .values{grid-template-columns:repeat(2,1fr)}
+  .hero{grid-template-columns:1fr}
+  .hero-r{min-height:0;padding:28px 20px 56px}
+  .cta-band{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  body{font-size:14.5px}
+  .wrap{padding:0 14px}
+  .bar{height:auto;flex-wrap:wrap;padding:12px 0 10px;gap:10px}
+  .search{order:3;flex-basis:100%;max-width:none;height:42px}
+  .btn-group{margin-left:auto;height:40px;padding-left:12px;font-size:14px}
+  .btn-group .lbl-long{display:none}
+  .logo-t strong{font-size:18px}
+  .hero{border-radius:22px;margin-top:16px}
+  .hero-l{padding:28px 22px}
+  .lead{font-size:15.5px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .c-body{padding:12px 12px}
+  .card h3{font-size:14px}
+  .why{display:none}
+  .price b{font-size:17px}
+  .buy{flex-direction:column;align-items:stretch;gap:8px}
+  .go{justify-content:center;height:36px}
+  .values{grid-template-columns:1fr 1fr;gap:8px}
+  .value{padding:12px;flex-direction:column;gap:8px}
+  .value p{font-size:12.5px}
+  section.blk{margin-top:40px}
+  .cta-band{padding:30px 24px;border-radius:22px}
+  .foot{grid-template-columns:1fr}
+  .float .t small{display:none}
+  .float .btn{padding:0 14px}
+  .badge{font-size:9.5px;padding:3px 7px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" href="#" aria-label="AchadosMM, página inicial">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="logo-t"><strong>Achados<span>MM</span></strong><small>by mandamanipular.com</small></span>
+      </a>
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Buscar produto ou categoria" autocomplete="off">
+      </label>
+      <a class="btn-group" href="#grupo" id="topGroup">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/></svg>
+        <span>Grupo<span class="lbl-long"> de ofertas</span></span><span class="count" id="topCount">0</span>
+      </a>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Categorias"></nav>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#" style="border:0;margin-bottom:12px">
+          <span class="mark" aria-hidden="true"></span>
+          <span class="logo-t"><strong>Achados<span>MM</span></strong><small>by mandamanipular.com</small></span>
+        </a>
+        <p>Curadoria de ofertas do que a farmácia de manipulação usa no dia a dia: bancada, EPI, etiquetagem, estoque, escritório, TI, expedição e copa. Matéria-prima e embalagem não entram.</p>
+      </div>
+      <div>
+        <h4>Como funciona</h4>
+        <p>A curadoria da MandaManipular.com procura ofertas nos grandes marketplaces todo dia. Você escolhe o que comprar e finaliza direto na loja, com o pagamento, o frete e a garantia de lá.</p>
+      </div>
+      <div>
+        <h4>Transparência</h4>
+        <p>Participamos dos programas de afiliados do Mercado Livre, da Shopee e da Amazon. Podemos receber comissão pelas compras feitas pelos links, sem custo extra para você.</p>
+        <p>Preços, descontos e estoque são das lojas e podem mudar a qualquer momento. Confira sempre na página antes de comprar.</p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr"></span> AchadosMM · by <a href="https://mandamanipular.com" style="border-bottom:1px solid var(--line)">mandamanipular.com</a></span>
+      <span id="upd"></span>
+    </div>
+  </div>
+</footer>
+
+<div class="float" id="float"></div>
+
+<script src="ofertas.js"></script>
+<script>
+(function(){
+const D = window.ACHADOS || {categorias:[],ofertas:[]};
+const CATS = D.categorias || [];
+const catById = Object.fromEntries(CATS.map(c=>[c.id,c]));
+const ALL = (D.ofertas||[]).filter(o=>o.ativo!==false).map(o=>{
+  const d = (o.preco && o.precoDe && o.precoDe>o.preco) ? Math.round((1-o.preco/o.precoDe)*100) : 0;
+  return Object.assign({},o,{desconto:d});
+});
+const HOJE = D.atualizadoEm || "";
+
+const IC = {
+  laboratorio:'<path d="M9 3h6M10 3v6L4.6 18.6A1.6 1.6 0 0 0 6 21h12a1.6 1.6 0 0 0 1.4-2.4L14 9V3"/><path d="M7 15h10"/>',
+  epi:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/>',
+  etiquetagem:'<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+  estoque:'<rect x="3" y="12" width="8" height="8" rx="1"/><rect x="13" y="12" width="8" height="8" rx="1"/><rect x="8" y="3" width="8" height="8" rx="1"/>',
+  escritorio:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  ti:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+  atendimento:'<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>',
+  expedicao:'<path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+  copa:'<path d="M5 8h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M9 3v2M13 3v2"/>',
+  _:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>',
+  all:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  fire:'<path d="M12 21c-4 0-7-2.7-7-6.5 0-3 2-5 3.5-6.5.3 2 1.3 3 2.5 3.5C11 8 12 5 14.5 3c.3 3 4.5 5.5 4.5 11 0 4-3 7-7 7z"/>',
+  star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  bag:'<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
+  chat:'<path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/>',
+  tec:'<path d="M9 3h6M10 3v5l-2 3h8l-2-3V3"/><path d="M6 21h12M8 11l-1 10M16 11l1 10"/>'
+};
+const TINT = {laboratorio:'#E4EFE7',epi:'#E6F0EE',etiquetagem:'#F6ECD6',estoque:'#EEE8DA',escritorio:'#EDEAE2',ti:'#E5EAF1',atendimento:'#F1E7E4',expedicao:'#EAE9DE',copa:'#F4E8DC'};
+const svg = (k,cls) => `<svg ${cls?`class="${cls}"`:''} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[k]||IC._}</svg>`;
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const brl = v => 'R$ ' + Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const dm = s => { if(!s) return ''; const p=s.split('-'); return p[2]+'/'+p[1]; };
+const storeCls = l => /shopee/i.test(l)?'st-sh':/amazon/i.test(l)?'st-am':'st-ml';
+
+/* derived lists */
+const priced = ALL.filter(o=>o.preco);
+const top = priced.filter(o=>o.desconto>0).sort((a,b)=>b.desconto-a.desconto);
+const best = ALL.filter(o=>o.vendidosNum>0).sort((a,b)=>b.vendidosNum-a.vendidosNum);
+const bestIds = new Set(best.slice(0,8).map(o=>o.id));
+const today = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm===HOJE && o.preco);
+const weekAgo = (()=>{ if(!HOJE) return ''; const d=new Date(HOJE+'T12:00:00'); d.setDate(d.getDate()-6); return d.toISOString().slice(0,10); })();
+const week = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm>=weekAgo && o.preco);
+
+function card(o){
+  const c = catById[o.categoria]||{};
+  const b = [];
+  if(bestIds.has(o.id)) b.push('<span class="badge b-best">Mais vendido</span>');
+  else if(o.adicionadoEm && o.adicionadoEm===HOJE && o.preco) b.push('<span class="badge b-new">Novo hoje</span>');
+  if(o.seloTecnico) b.push('<span class="badge b-tec">Uso técnico</span>');
+  const img = o.imagem ? `<img src="${esc(o.imagem)}" alt="" loading="lazy">` : `<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`;
+  const price = o.preco
+    ? `<div class="price">${o.precoDe&&o.precoDe>o.preco?`<s>${brl(o.precoDe)}</s>`:''}<b>${brl(o.preco)}</b></div>`
+    : `<div class="price"><span class="np">Confira o preço do dia na loja</span></div>`;
+  const ship = o.full ? '⚡ Full · chega rápido' : (o.freteGratis ? 'Frete grátis' : '');
+  return `<article class="card">
+    <a class="thumb${o.imagem?'':' noimg'}" href="${esc(o.link)}" target="_blank" rel="noopener sponsored" style="background:${TINT[o.categoria]||'#EEE'}" aria-label="${esc(o.titulo)}">
+      ${img}
+      ${b.length?`<div class="badges">${b.join('')}</div>`:''}
+      ${o.desconto>0?`<span class="off">-${o.desconto}%</span>`:''}
+    </a>
+    <div class="c-body">
+      <span class="store ${storeCls(o.loja)}">${esc(o.loja||'Mercado Livre')}</span>
+      <div class="cat-l">${esc(c.curto||'')}${o.marca?' · '+esc(o.marca):''}</div>
+      <h3>${esc(o.titulo)}</h3>
+      ${o.porQueVale?`<p class="why">${esc(o.porQueVale)}</p>`:''}
+      ${o.vendidos?`<p class="sold">${esc(o.vendidos)}</p>`:''}
+      ${ship?`<p class="ship">${ship}</p>`:''}
+      <div class="buy">${price}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">${o.preco?'Ver oferta':'Ver na loja'}</a></div>
+      ${o.preco&&o.vistoEm?`<p class="seen">Preço visto em ${dm(o.vistoEm)}</p>`:''}
+    </div>
+  </article>`;
+}
+const grid = (list, n) => `<div class="grid">${(n?list.slice(0,n):list).map(card).join('') || '<div class="empty">Nenhum item por aqui ainda.</div>'}</div>`;
+function sec(id, title, sub, list, n, moreHash){
+  if(!list.length) return '';
+  return `<section class="blk" id="sec-${id}">
+    <div class="sec-h"><div><h2>${title}</h2>${sub?`<p>${sub}</p>`:''}</div>${moreHash&&list.length>n?`<a class="more" href="#${moreHash}">Ver todos →</a>`:''}</div>
+    ${grid(list,n)}
+  </section>`;
+}
+
+/* Tabs */
+function renderTabs(active){
+  const t = [`<a class="tab ${!active?'on':''}" href="#">${svg('all')}Todos</a>`];
+  if(top.length) t.push(`<a class="tab ${active==='top-ofertas'?'on':''}" href="#top-ofertas">${svg('fire')}Top ofertas</a>`);
+  if(best.length) t.push(`<a class="tab ${active==='mais-vendidos'?'on':''}" href="#mais-vendidos">${svg('star')}Mais vendidos</a>`);
+  CATS.forEach(c=>{ if(ALL.some(o=>o.categoria===c.id)) t.push(`<a class="tab ${active===c.id?'on':''}" href="#${c.id}">${svg(c.id)}${esc(c.curto||c.nome)}</a>`); });
+  document.getElementById('tabs').innerHTML = t.join('');
+  const on = document.querySelector('.tab.on'); if(on && on.scrollIntoView) try{ on.scrollIntoView({block:'nearest',inline:'center'}); }catch(e){}
+}
+
+/* Home */
+let featTimer=null;
+function home(){
+  const feats = (top.length?top:priced).slice(0,5);
+  let heroR;
+  if(feats.length){
+    heroR = `<div class="feat" id="feat"></div><div class="dots" id="fdots"></div>`;
+  } else {
+    heroR = `<div class="cat-mosaic">${CATS.filter(c=>ALL.some(o=>o.categoria===c.id)).map(c=>`<a href="#${c.id}">${svg(c.id)}${esc(c.curto)}</a>`).join('')}</div>`;
+  }
+  const catRows = CATS.map(c=>{
+    const l = ALL.filter(o=>o.categoria===c.id).sort((a,b)=>(b.preco?1:0)-(a.preco?1:0) || b.desconto-a.desconto || (b.vendidosNum||0)-(a.vendidosNum||0));
+    return sec('c-'+c.id, esc(c.nome), `${l.length} ${l.length===1?'item':'itens'} na curadoria`, l, 4, c.id);
+  }).join('');
+  const noPrices = !priced.length;
+  document.getElementById('app').innerHTML = `
+  <section class="hero">
+    <div class="hero-l">
+      <div class="chips"><span class="chip mono"><i></i>Curadoria diária</span><span class="chip mono">Só para farmácia de manipulação</span></div>
+      <h1>O que a farmácia usa todo dia, <em>com desconto</em> de verdade.</h1>
+      <p class="lead">A MandaManipular.com garimpa no Mercado Livre, na Shopee e na Amazon o que a sua farmácia compra no dia a dia. Você escolhe e compra direto na loja.</p>
+      <div class="ctas"><a class="btn dark" href="#ofertas">Ver ofertas</a><a class="btn ghost" href="#grupo">Entrar no grupo</a></div>
+    </div>
+    <div class="hero-r">${heroR}</div>
+  </section>
+  <div class="values">
+    <div class="value"><span class="ic">${svg('sun')}</span><div><b>Seleção diária</b><p>Lista nova a cada curadoria, com o preço do dia.</p></div></div>
+    <div class="value"><span class="ic">${svg('bag')}</span><div><b>Compra direto na loja</b><p>Pagamento, frete e garantia do próprio marketplace.</p></div></div>
+    <div class="value"><span class="ic">${svg('laboratorio')}</span><div><b>Só o que a farmácia usa</b><p>Bancada, EPI, etiquetagem, estoque e escritório.</p></div></div>
+    <div class="value"><span class="ic">${svg('tec')}</span><div><b>Selo Uso técnico</b><p>Destaque para itens ligados às boas práticas.</p></div></div>
+  </div>
+  <div id="ofertas"></div>
+  ${noPrices ? `<section class="blk"><div class="notice"><span class="ic">${svg('sun')}</span><div><b>As ofertas do dia entram aqui.</b><p>Assim que a curadoria conferir os preços, aparecem as seções Top ofertas, Mais vendidos e Destaques do dia. Enquanto isso, veja abaixo o catálogo do que a farmácia usa no dia a dia.</p></div></div></section>` : ''}
+  ${sec('top','Top <em>ofertas</em>','Os maiores descontos da curadoria, conferidos na loja.',top,8,'top-ofertas')}
+  ${sec('best','Mais vendidos','Produtos com milhares de vendas e boa avaliação.',best,4,'mais-vendidos')}
+  ${sec('today','Destaques do dia',`Ofertas selecionadas em ${dm(HOJE)}.`,today,8,'')}
+  ${grupoBlock()}
+  ${catRows}
+  ${askBlock()}`;
+  if(feats.length) startFeat(feats);
+}
+function startFeat(f){
+  let i=0; clearInterval(featTimer);
+  const draw=()=>{
+    const o=f[i], c=catById[o.categoria]||{};
+    const el=document.getElementById('feat'); if(!el){clearInterval(featTimer);return;}
+    el.innerHTML = `<a class="thumb" href="${esc(o.link)}" target="_blank" rel="noopener sponsored" style="background:${TINT[o.categoria]||'#EEE'}">${o.imagem?`<img src="${esc(o.imagem)}" alt="">`:`<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`}${o.desconto>0?`<span class="off">-${o.desconto}% hoje</span>`:''}</a>
+      <div class="feat-b"><span class="store ${storeCls(o.loja)}">${esc(o.loja)}</span><h3>${esc(o.titulo)}</h3>
+      <div class="buy">${o.precoDe&&o.precoDe>o.preco?`<div class="price"><s>${brl(o.precoDe)}</s><b>${brl(o.preco)}</b></div>`:`<div class="price"><b>${brl(o.preco)}</b></div>`}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">Ver oferta</a></div></div>`;
+    document.getElementById('fdots').innerHTML = `Oferta ${i+1} de ${f.length} ` + f.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('');
+    i=(i+1)%f.length;
+  };
+  draw(); if(f.length>1) featTimer=setInterval(draw,4500);
+}
+function grupoBlock(){
+  const has = !!D.grupoUrl;
+  return `<section class="cta-band" id="grupo">
+    <div><h2>Receba as ofertas do dia <em>direto no WhatsApp.</em></h2>
+    <p>Grupo silencioso: só os admins postam, só oferta que vale a pena para a farmácia. Economia na compra é margem no caixa.</p></div>
+    <div>${has?`<a class="btn" href="${esc(D.grupoUrl)}" target="_blank" rel="noopener">${svg('chat')}Entrar no grupo do WhatsApp →</a>`:`<span class="btn" style="cursor:default">${svg('chat')}Grupo abre em breve</span><p class="hint">O grupo é exclusivo para as farmácias atendidas pela consultoria MandaManipular.com. Fale com o seu consultor.</p>`}</div>
+  </section>`;
+}
+function askBlock(){
+  const n = (D.whatsappPedidos||'').replace(/\D/g,'');
+  return `<div class="ask"><div><b>Procurando algum item para a farmácia?</b><p>Conte para a gente o que você precisa que a curadoria garimpa e posta no grupo.</p></div>
+  ${n?`<a class="btn green" href="https://wa.me/${n}?text=${encodeURIComponent('Oi! Estou procurando um item para a farmácia: ')}" target="_blank" rel="noopener">${svg('chat')}Pedir um achado</a>`:`<span class="mono" style="color:var(--muted)">Fale com o seu consultor MandaManipular</span>`}</div>`;
+}
+
+/* List view */
+let sortBy='relevancia';
+function sorter(l){
+  const a=l.slice();
+  if(sortBy==='desconto') a.sort((x,y)=>y.desconto-x.desconto);
+  else if(sortBy==='menor') a.sort((x,y)=>(x.preco||1e12)-(y.preco||1e12));
+  else if(sortBy==='vendidos') a.sort((x,y)=>(y.vendidosNum||0)-(x.vendidosNum||0));
+  else a.sort((x,y)=>(y.preco?1:0)-(x.preco?1:0) || y.desconto-x.desconto || (y.vendidosNum||0)-(x.vendidosNum||0));
+  return a;
+}
+function listView(kind, title, sub, list){
+  document.getElementById('app').innerHTML = `
+    <a class="back" href="#">← Todas as ofertas</a>
+    <div class="view-h"><div><span class="mono" style="color:var(--green)">${kind}</span><h1>${title}</h1><p>${sub}</p></div>
+      <label class="sort">Ordenar
+        <select id="sort">
+          <option value="relevancia">Relevância</option>
+          <option value="desconto">Maior desconto</option>
+          <option value="menor">Menor preço</option>
+          <option value="vendidos">Mais vendidos</option>
+        </select></label></div>
+    <section class="blk" style="margin-top:22px" id="lv">${grid(sorter(list))}</section>
+    ${grupoBlock()}${askBlock()}`;
+  const s=document.getElementById('sort'); s.value=sortBy;
+  s.onchange=()=>{ sortBy=s.value; document.getElementById('lv').innerHTML=grid(sorter(list)); };
+}
+function norm(s){return String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();}
+function searchView(q){
+  const t=norm(q).split(/\s+/).filter(Boolean);
+  const l=ALL.filter(o=>{const h=norm([o.titulo,o.marca,o.porQueVale,(catById[o.categoria]||{}).nome].join(' '));return t.every(w=>h.includes(w));});
+  renderTabs('');
+  listView('Busca',`“${esc(q)}”`,`${l.length} ${l.length===1?'resultado':'resultados'}`,l);
+}
+
+/* Router */
+function route(){
+  clearInterval(featTimer);
+  const h=(location.hash||'').slice(1);
+  const qv=document.getElementById('q').value.trim();
+  if(qv && !h){ searchView(qv); return; }
+  renderTabs(h && h!=='grupo' && h!=='ofertas' ? h : '');
+  if(catById[h]){ const c=catById[h]; const l=ALL.filter(o=>o.categoria===h); listView('Categoria',esc(c.nome),`${l.length} ${l.length===1?'item':'itens'} na curadoria`,l); window.scrollTo(0,0); return; }
+  if(h==='top-ofertas'){ listView('Top ofertas','Top <em>ofertas</em>','Os maiores descontos conferidos pela curadoria.',top); window.scrollTo(0,0); return; }
+  if(h==='mais-vendidos'){ listView('Mais vendidos','Mais vendidos','Produtos com mais vendas nas lojas.',best); window.scrollTo(0,0); return; }
+  home();
+  if(h==='grupo'||h==='ofertas'){ const el=document.getElementById(h); if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),30); }
+  else window.scrollTo(0,0);
+}
+let qt=null;
+document.getElementById('q').addEventListener('input',e=>{
+  clearTimeout(qt); qt=setTimeout(()=>{ const v=e.target.value.trim();
+    if(v){ if(location.hash) history.replaceState(null,'',location.pathname); searchView(v); } else route(); },180);
+});
+window.addEventListener('hashchange',()=>{ document.getElementById('q').value=''; route(); });
+
+/* Header count + floating bar + footer */
+const nHoje=today.length, nSemana=week.length;
+document.getElementById('topCount').textContent = nHoje || priced.length || ALL.length;
+const fl=document.getElementById('float');
+const grpBtn = D.grupoUrl ? `<a class="btn" href="${esc(D.grupoUrl)}" target="_blank" rel="noopener">Entrar no grupo →</a>` : `<a class="btn" href="#grupo">Entrar no grupo →</a>`;
+fl.innerHTML = nHoje
+  ? `<span class="n">${nHoje}</span><span class="t"><b>${nHoje} ${nHoje===1?'oferta nova':'ofertas novas'} em ${dm(HOJE)}</b><small>${nSemana} ofertas da semana no site. Preços podem mudar nas lojas.</small></span>${grpBtn}`
+  : `<span class="n">${ALL.length}</span><span class="t"><b>${ALL.length} itens na curadoria</b><small>Receba as ofertas do dia no WhatsApp.</small></span>${grpBtn}`;
+document.getElementById('yr').textContent = (HOJE||'2026').slice(0,4);
+document.getElementById('upd').textContent = HOJE ? `Curadoria atualizada em ${dm(HOJE)}/${HOJE.slice(0,4)}` : '';
+route();
+})();
+</script>
+</body>
+</html>
