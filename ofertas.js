@@ -243,7 +243,7 @@ window.ACHADOS = {
     {
       "id": "luva-nitrilica-vabene",
       "titulo": "Luva nitrílica preta descartável, tamanho M, 100 unidades",
-      "marca": "Vabene",
+      "marca": "",
       "categoria": "epi",
       "loja": "Mercado Livre",
       "link": "https://meli.la/19HP9tP",

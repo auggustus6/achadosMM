@@ -237,7 +237,10 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
 .join p{margin:4px 0 0;color:var(--ink2);font-size:14px;max-width:560px}
 @media (max-width:680px){
   .btn-acc{height:40px;padding:0 12px}
-  .btn-acc .lbl{max-width:96px}
+  .btn-acc .lbl{display:none}
+  .btn-acc{width:40px;padding:0;justify-content:center}
+  .btn-group{margin-left:auto}
+  .bar .btn-acc{margin-left:0}
   .cfg-i{grid-template-columns:1fr auto}
   .cfg-i .mini{grid-column:1/-1;justify-content:center}
 }
@@ -264,6 +267,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
   .bar{height:auto;flex-wrap:wrap;padding:12px 0 10px;gap:10px}
   .search{order:3;flex-basis:100%;max-width:none;height:42px}
   .btn-group{margin-left:auto;height:40px;padding-left:12px;font-size:14px}
+  #pvTop .join,#pvTop .due{margin-top:14px}
   .btn-group .lbl-long{display:none}
   .logo-t strong{font-size:18px}
   .hero{border-radius:22px;margin-top:16px}
@@ -487,6 +491,7 @@ function home(){
   }).join('');
   const noPrices = !priced.length;
   document.getElementById('app').innerHTML = `
+  <div id="pvTop">${C.user ? paraVoceBlock() : ''}</div>
   <section class="hero">
     <div class="hero-l">
       <div class="chips"><span class="chip mono"><i></i>Curadoria diária</span><span class="chip mono">Só para farmácia de manipulação</span></div>
@@ -502,7 +507,7 @@ function home(){
     <div class="value"><span class="ic">${svg('laboratorio')}</span><div><b>Só o que a farmácia usa</b><p>Bancada, EPI, etiquetagem, estoque e escritório.</p></div></div>
     <div class="value"><span class="ic">${svg('tec')}</span><div><b>Selo Uso técnico</b><p>Destaque para itens ligados às boas práticas.</p></div></div>
   </div>
-  <div id="paraVoce">${paraVoceBlock()}</div>
+  <div id="paraVoce">${C.user ? '' : paraVoceBlock()}</div>
   <div id="ofertas"></div>
   ${noPrices ? `<section class="blk"><div class="notice"><span class="ic">${svg('sun')}</span><div><b>As ofertas do dia entram aqui.</b><p>Assim que a curadoria conferir os preços, aparecem as seções Top ofertas, Mais vendidos e Destaques do dia. Enquanto isso, veja abaixo o catálogo do que a farmácia usa no dia a dia.</p></div></div></section>` : ''}
   ${sec('top','Top <em>ofertas</em>','Os maiores descontos da curadoria, conferidos na loja.',top,8,'top-ofertas')}
@@ -666,6 +671,7 @@ function dueBlock() {
   return `<div class="due"><h3>Hora de recomprar</h3>${v.map(r => `<div class="due-i"><div><b>${esc(r.tipo.nome)}</b><small>Última compra em ${dmy(r.ultima_compra)} · lembrete a cada ${r.lembrar_dias} dias</small></div>
     <div style="display:flex;gap:6px"><a class="mini" href="#${esc(r.tipo.categoria)}">Ver ofertas</a><button class="mini g" type="button" data-comprei="${esc(r.tipo_id)}">Comprei hoje</button></div></div>`).join('')}</div>`;
 }
+function renderPV() { const t = document.getElementById('pvTop'), m = document.getElementById('paraVoce'); if (t) t.innerHTML = C.user ? paraVoceBlock() : ''; if (m) m.innerHTML = C.user ? '' : paraVoceBlock(); }
 function paraVoceBlock() {
   if (!SB) return '';
   if (!C.carregado) return '';
@@ -743,7 +749,7 @@ async function atualizaInteresse(id, campos) {
   const { data, error } = await SB.from('interesses').update(campos).eq('user_id', C.user.id).eq('tipo_id', id).select('tipo_id,lembrar_dias,ultima_compra').maybeSingle();
   if (error || !data) return toast('Não foi possível salvar');
   C.interesses.set(id, data);
-  const y = window.scrollY; if ((location.hash || '') === '#minha-farmacia') contaView(); else { const pv = document.getElementById('paraVoce'); if (pv) pv.innerHTML = paraVoceBlock(); }
+  const y = window.scrollY; if ((location.hash || '') === '#minha-farmacia') contaView(); else renderPV();
   window.scrollTo(0, y); toast();
 }
 document.addEventListener('click', (e) => {
@@ -826,7 +832,7 @@ function initConta() {
     renderAccBtn();
     const h = (location.hash || '').slice(1);
     if (h === 'minha-farmacia') contaView();
-    else { const pv = document.getElementById('paraVoce'); if (pv) pv.innerHTML = paraVoceBlock(); }
+    else renderPV();
   }).catch(() => { C.carregado = true; });
 }
 async function depoisDeEntrar(novo) {
