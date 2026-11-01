@@ -10,7 +10,8 @@ Site estático com as ofertas do dia para farmácias de manipulação. A curador
 | `ofertas.js` | Base de ofertas (`window.ACHADOS`, com JSON puro). É o único arquivo de dados que a curadoria altera, sempre pelo script. |
 | `scripts/curadoria.py` | Junta as ofertas do dia no `ofertas.js` e aplica as regras de preço e validade. |
 | `og.png` | Imagem de prévia quando o link é compartilhado no WhatsApp ou em redes sociais. |
-| `favicon.svg` | Ícone do site. |
+| `img/logo.png` | Logo do AchadosMM usada no cabeçalho e no rodapé. |
+| `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `img/icon-192.png`, `img/icon-512.png`, `site.webmanifest` | Ícone do site (aba do navegador, atalho no celular), feito a partir da logo. |
 | `vercel.json` | Configuração da Vercel. O `ofertas.js` sai sem cache para a atualização aparecer na hora. |
 
 Não tem build. A Vercel publica a pasta como está, com Framework Preset "Other" e sem comando de build.
