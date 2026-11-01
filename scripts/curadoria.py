@@ -8,7 +8,7 @@ Uso:
 novos.json = lista de ofertas conferidas hoje. Campos aceitos:
   id (opcional: atualiza o item com esse id), titulo, marca, categoria, loja, link,
   preco, precoDe, vendidos, vendidosNum, porQueVale, seloTecnico, full, freteGratis,
-  imagem, destaque (true = entra em "Destaques do dia" e conta como oferta nova).
+  imagem, tipo (id de public.tipos_produto no Supabase, ex.: luva, etiqueta-termica), destaque (true = entra em "Destaques do dia" e conta como oferta nova).
 
 Regras aplicadas:
   - casa pelo id; sem id, pelo título normalizado; senão cria item novo;
@@ -24,7 +24,7 @@ PREFIX = 'window.ACHADOS = '
 HEAD = ('/* AchadosMM: base de ofertas. Gerado pela Curadoria AchadosMM (scripts/curadoria.py). '
         'Não editar à mão: o objeto abaixo é JSON puro. */\n')
 CAMPOS = ['titulo', 'marca', 'categoria', 'loja', 'link', 'preco', 'precoDe', 'vendidos',
-          'vendidosNum', 'porQueVale', 'seloTecnico', 'full', 'freteGratis', 'imagem', 'ativo']
+          'vendidosNum', 'tipo', 'porQueVale', 'seloTecnico', 'full', 'freteGratis', 'imagem', 'ativo']
 
 
 def load(path):
@@ -93,7 +93,7 @@ def main():
                 nid = f'{base}-{i}'; i += 1
             o = {'id': nid, 'titulo': t, 'marca': '', 'categoria': n['categoria'], 'loja': 'Mercado Livre',
                  'link': n['link'], 'preco': None, 'precoDe': None, 'vendidos': '', 'vendidosNum': 0,
-                 'porQueVale': '', 'seloTecnico': False, 'full': False, 'freteGratis': False, 'imagem': '',
+                 'porQueVale': '', 'tipo': '', 'seloTecnico': False, 'full': False, 'freteGratis': False, 'imagem': '',
                  'adicionadoEm': a.hoje, 'vistoEm': '', 'ativo': True}
             d['ofertas'].append(o); by_id[nid] = o; by_key[key(t)] = o; criados += 1
         else:

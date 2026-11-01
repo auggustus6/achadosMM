@@ -175,6 +175,73 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
 .foot a:hover{color:var(--green);border-color:var(--green)}
 .legal{margin-top:24px;padding-top:16px;border-top:1px solid var(--line2);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
+/* Conta */
+.btn-acc{display:flex;align-items:center;gap:8px;height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:600;font-size:14px;white-space:nowrap;flex-shrink:0;max-width:220px}
+.btn-acc svg{width:18px;height:18px;flex-shrink:0}
+.btn-acc span{overflow:hidden;text-overflow:ellipsis}
+.btn-acc.on{border-color:var(--green);color:var(--green)}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(11,19,15,.45);display:none;align-items:flex-end;justify-content:center}
+.modal.open{display:flex}
+.sheet{background:var(--bg);width:100%;max-width:460px;max-height:92vh;overflow:auto;border-radius:24px 24px 0 0;padding:22px 20px 28px;box-shadow:0 -10px 40px rgba(0,0,0,.2)}
+@media (min-width:681px){.modal{align-items:center}.sheet{border-radius:24px}}
+.sheet-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sheet-h h3{font-family:var(--head);font-size:24px;letter-spacing:-.02em;margin:0}
+.x{border:0;background:var(--cream);width:36px;height:36px;border-radius:50%;font-size:18px;line-height:1}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--cream);border-radius:999px;padding:4px;margin:14px 0 16px}
+.seg button{border:0;background:transparent;border-radius:999px;height:38px;font-weight:600;color:var(--ink2)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+.fld{display:block;margin-bottom:12px}
+.fld span{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:5px}
+.fld input,.fld select{width:100%;height:46px;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:0 14px;font:inherit;color:var(--ink)}
+.fld input:focus,.fld select:focus{outline:0;border-color:var(--green)}
+.row2{display:grid;grid-template-columns:1fr 92px;gap:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink2);margin:6px 0 16px}
+.chk input{width:20px;height:20px;accent-color:var(--green);flex-shrink:0;margin-top:1px}
+.msg{font-size:13.5px;border-radius:10px;padding:10px 12px;margin:0 0 12px;display:none}
+.msg.err{display:block;background:#FBE9E7;color:#9A2B17}
+.msg.ok{display:block;background:var(--green-s);color:var(--green-d)}
+.btn.full{width:100%;justify-content:center}
+.btn[disabled]{opacity:.6;pointer-events:none}
+.small{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+.acc-h{margin-top:20px;background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:20px 22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.acc-h h1{font-size:clamp(26px,4vw,38px);margin:4px 0 2px}
+.acc-h p{margin:0;color:var(--ink2)}
+.acc-actions{display:flex;gap:8px;flex-wrap:wrap}
+.acc-actions .btn{height:40px;font-size:14px;padding:0 16px}
+.edit-box{margin-top:12px;background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:18px 20px;display:none}
+.edit-box.open{display:block}
+.due{background:var(--amber-s);border:1px solid #EBD3A6;border-radius:var(--r);padding:16px 18px;margin-top:16px}
+.due h3{margin:0 0 6px;font-family:var(--head);font-size:20px;letter-spacing:-.02em}
+.due-i{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid #EBD3A6;flex-wrap:wrap}
+.due h3 + .due-i{border-top:0}
+.due-i b{font-size:15px}
+.due-i small{display:block;color:var(--ink2);font-size:12.5px}
+.mini{height:34px;padding:0 13px;border-radius:999px;font-size:13px;font-weight:600;border:1.5px solid var(--ink);background:#fff;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ink)}
+.mini.g{background:var(--green);border-color:var(--green);color:#fff}
+.cat-box{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:16px 18px;margin-top:12px}
+.cat-box h3{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:16px}
+.cat-box h3 svg{width:20px;height:20px;color:var(--green)}
+.chips2{display:flex;flex-wrap:wrap;gap:8px}
+.tchip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:500;color:var(--ink2);display:inline-flex;align-items:center;gap:6px}
+.tchip.on{background:var(--green);border-color:var(--green);color:#fff}
+.tchip.on:before{content:"✓";font-weight:700}
+.cfg{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.cfg-i{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;background:var(--bg);border-radius:12px;padding:8px 10px}
+.cfg-i b{font-size:13.5px;font-weight:600}
+.cfg-i small{display:block;font-size:12px;color:var(--muted)}
+.cfg-i select{height:34px;border:1.5px solid var(--line);border-radius:999px;background:#fff;padding:0 10px;font:inherit;font-size:13px}
+.saved{position:fixed;left:50%;top:84px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;z-index:70;opacity:0;transition:opacity .2s;pointer-events:none}
+.saved.show{opacity:1}
+.join{margin-top:16px;background:#fff;border:1.5px dashed var(--green);border-radius:var(--r);padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.join b{font-family:var(--head);font-size:21px;letter-spacing:-.02em;display:block}
+.join p{margin:4px 0 0;color:var(--ink2);font-size:14px;max-width:560px}
+@media (max-width:680px){
+  .btn-acc{height:40px;padding:0 12px}
+  .btn-acc .lbl{max-width:96px}
+  .cfg-i{grid-template-columns:1fr auto}
+  .cfg-i .mini{grid-column:1/-1;justify-content:center}
+}
+
 /* Floating bar */
 .float{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:40;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 10px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 32px -8px rgba(11,19,15,.45);width:max-content;max-width:calc(100% - 24px)}
 .float .n{background:var(--amber);color:#fff;font-weight:700;border-radius:999px;min-width:34px;height:34px;display:grid;place-items:center;font-size:13px;padding:0 8px;flex-shrink:0}
@@ -237,6 +304,10 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/></svg>
         <span>Grupo<span class="lbl-long"> de ofertas</span></span><span class="count" id="topCount">0</span>
       </a>
+      <button class="btn-acc" id="accBtn" type="button" aria-label="Entrar ou criar conta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        <span class="lbl" id="accLbl">Entrar</span>
+      </button>
     </div>
     <nav class="tabs" id="tabs" aria-label="Categorias"></nav>
   </div>
@@ -271,9 +342,41 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
   </div>
 </footer>
 
+<div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="sheet">
+    <div class="sheet-h"><h3 id="authTitle">Sua farmácia no AchadosMM</h3><button class="x" type="button" id="authClose" aria-label="Fechar">✕</button></div>
+    <p style="margin:0;color:var(--ink2);font-size:14px">Marque o que a sua farmácia compra e receba lembrete de recompra e as ofertas do que interessa.</p>
+    <div class="seg"><button type="button" id="tabIn" class="on">Entrar</button><button type="button" id="tabUp">Criar conta</button></div>
+    <form id="fIn" novalidate>
+      <div class="msg" id="mIn"></div>
+      <label class="fld"><span>Celular com DDD</span><input id="inTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(17) 99999-9999"></label>
+      <label class="fld"><span>Senha</span><input id="inPw" type="password" autocomplete="current-password"></label>
+      <button class="btn dark full" type="submit" id="bIn">Entrar</button>
+      <p class="small">Esqueceu a senha? Fale com o seu consultor MandaManipular.com que a gente redefine.</p>
+    </form>
+    <form id="fUp" novalidate style="display:none">
+      <div class="msg" id="mUp"></div>
+      <label class="fld"><span>Seu nome</span><input id="upNome" autocomplete="name" maxlength="80"></label>
+      <label class="fld"><span>Celular com DDD (vai ser o seu login)</span><input id="upTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(17) 99999-9999"></label>
+      <label class="fld"><span>Crie uma senha (mínimo 6 caracteres)</span><input id="upPw" type="password" autocomplete="new-password"></label>
+      <label class="fld"><span>Nome da farmácia</span><input id="upFarm" maxlength="120"></label>
+      <div class="row2">
+        <label class="fld"><span>Cidade</span><input id="upCid" autocomplete="address-level2" maxlength="80"></label>
+        <label class="fld"><span>UF</span><select id="upUf"></select></label>
+      </div>
+      <label class="chk"><input type="checkbox" id="upAceite" checked><span>Quero receber no WhatsApp ofertas e lembretes de recompra do AchadosMM. Posso cancelar quando quiser.</span></label>
+      <button class="btn green full" type="submit" id="bUp">Criar conta</button>
+      <p class="small">Usamos seus dados só para personalizar as ofertas e os lembretes da sua farmácia.</p>
+    </form>
+  </div>
+</div>
+<div class="saved" id="saved">Salvo ✓</div>
+
 <div class="float" id="float"></div>
 
+
 <script src="ofertas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
 <script>
 (function(){
 const D = window.ACHADOS || {categorias:[],ofertas:[]};
@@ -331,7 +434,7 @@ function card(o){
     ? `<div class="price">${o.precoDe&&o.precoDe>o.preco?`<s>${brl(o.precoDe)}</s>`:''}<b>${brl(o.preco)}</b></div>`
     : `<div class="price"><span class="np">Confira o preço do dia na loja</span></div>`;
   const ship = o.full ? '⚡ Full · chega rápido' : (o.freteGratis ? 'Frete grátis' : '');
-  return `<article class="card">
+  return `<article class="card" data-oid="${esc(o.id)}" data-cat="${esc(o.categoria)}">
     <a class="thumb${o.imagem?'':' noimg'}" href="${esc(o.link)}" target="_blank" rel="noopener sponsored" style="background:${TINT[o.categoria]||'#EEE'}" aria-label="${esc(o.titulo)}">
       ${img}
       ${b.length?`<div class="badges">${b.join('')}</div>`:''}
@@ -399,6 +502,7 @@ function home(){
     <div class="value"><span class="ic">${svg('laboratorio')}</span><div><b>Só o que a farmácia usa</b><p>Bancada, EPI, etiquetagem, estoque e escritório.</p></div></div>
     <div class="value"><span class="ic">${svg('tec')}</span><div><b>Selo Uso técnico</b><p>Destaque para itens ligados às boas práticas.</p></div></div>
   </div>
+  <div id="paraVoce">${paraVoceBlock()}</div>
   <div id="ofertas"></div>
   ${noPrices ? `<section class="blk"><div class="notice"><span class="ic">${svg('sun')}</span><div><b>As ofertas do dia entram aqui.</b><p>Assim que a curadoria conferir os preços, aparecem as seções Top ofertas, Mais vendidos e Destaques do dia. Enquanto isso, veja abaixo o catálogo do que a farmácia usa no dia a dia.</p></div></div></section>` : ''}
   ${sec('top','Top <em>ofertas</em>','Os maiores descontos da curadoria, conferidos na loja.',top,8,'top-ofertas')}
@@ -476,8 +580,9 @@ function route(){
   const h=(location.hash||'').slice(1);
   const qv=document.getElementById('q').value.trim();
   if(qv && !h){ searchView(qv); return; }
-  renderTabs(h && h!=='grupo' && h!=='ofertas' ? h : '');
+  renderTabs(h && !['grupo','ofertas','minha-farmacia'].includes(h) ? h : '');
   if(catById[h]){ const c=catById[h]; const l=ALL.filter(o=>o.categoria===h); listView('Categoria',esc(c.nome),`${l.length} ${l.length===1?'item':'itens'} na curadoria`,l); window.scrollTo(0,0); return; }
+  if(h==='minha-farmacia'){ contaView(); window.scrollTo(0,0); return; }
   if(h==='top-ofertas'){ listView('Top ofertas','Top <em>ofertas</em>','Os maiores descontos conferidos pela curadoria.',top); window.scrollTo(0,0); return; }
   if(h==='mais-vendidos'){ listView('Mais vendidos','Mais vendidos','Produtos com mais vendas nas lojas.',best); window.scrollTo(0,0); return; }
   home();
@@ -501,7 +606,238 @@ fl.innerHTML = nHoje
   : `<span class="n">${ALL.length}</span><span class="t"><b>${ALL.length} itens na curadoria</b><small>Receba as ofertas do dia no WhatsApp.</small></span>${grpBtn}`;
 document.getElementById('yr').textContent = (HOJE||'2026').slice(0,4);
 document.getElementById('upd').textContent = HOJE ? `Curadoria atualizada em ${dm(HOJE)}/${HOJE.slice(0,4)}` : '';
+/* ===== Conta da farmácia (Supabase) ===== */
+const SB_URL = 'https://gltxisnlyclsabtuhtjv.supabase.co';
+const SB_KEY = 'sb_publishable_b3aJ012Vei4qeVbwjvAnPQ_AuKgzCHA';
+const LOGIN_DOM = 'contas.achadosmm.mandamanipular.com';
+const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO'.split(' ');
+let SB = null;
+try { if (window.supabase) SB = window.supabase.createClient(SB_URL, SB_KEY, { auth: { persistSession: true, autoRefreshToken: true } }); } catch (e) { SB = null; }
+const C = { user: null, perfil: null, tipos: [], interesses: new Map(), carregado: false };
+
+const normTel = v => { let d = String(v || '').replace(/\D/g, ''); if (d.length === 10 || d.length === 11) d = '55' + d; return /^55\d{10,11}$/.test(d) ? d : null; };
+const fmtTel = v => { const d = String(v || '').replace(/\D/g, '').replace(/^55/, ''); return d.length === 11 ? `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}` : d.length === 10 ? `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}` : v; };
+const hojeISO = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+const addDias = (iso, n) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+const dmy = iso => iso ? iso.slice(8,10) + '/' + iso.slice(5,7) : '';
+function toast(t) { const el = document.getElementById('saved'); el.textContent = t || 'Salvo ✓'; el.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('show'), 1400); }
+function msg(id, t, ok) { const el = document.getElementById(id); el.className = 'msg ' + (t ? (ok ? 'ok' : 'err') : ''); el.textContent = t || ''; }
+
+async function carregarConta() {
+  C.user = null; C.perfil = null; C.interesses = new Map();
+  if (!SB) { C.carregado = true; return; }
+  const { data: { session } } = await SB.auth.getSession();
+  if (session && session.user) {
+    C.user = session.user;
+    const [p, i] = await Promise.all([
+      SB.from('perfis').select('*').eq('user_id', C.user.id).maybeSingle(),
+      SB.from('interesses').select('tipo_id,lembrar_dias,ultima_compra').eq('user_id', C.user.id)
+    ]);
+    C.perfil = p.data || null;
+    (i.data || []).forEach(r => C.interesses.set(r.tipo_id, r));
+  }
+  if (!C.tipos.length) {
+    const t = await SB.from('tipos_produto').select('id,nome,categoria,ordem').order('ordem');
+    C.tipos = t.data || [];
+  }
+  C.carregado = true;
+}
+function renderAccBtn() {
+  const b = document.getElementById('accBtn'), l = document.getElementById('accLbl');
+  if (C.user && C.perfil) { b.classList.add('on'); l.textContent = C.perfil.farmacia; b.setAttribute('aria-label', 'Minha farmácia'); }
+  else { b.classList.remove('on'); l.textContent = 'Entrar'; b.setAttribute('aria-label', 'Entrar ou criar conta'); }
+}
+
+/* Ofertas que combinam com o que a farmácia marcou */
+function ofertasDaFarmacia() {
+  if (!C.interesses.size) return [];
+  const tipos = new Set(C.interesses.keys());
+  const cats = new Set(C.tipos.filter(t => tipos.has(t.id)).map(t => t.categoria));
+  return ALL.filter(o => tipos.has(o.tipo) || cats.has(o.categoria))
+    .sort((a, b) => (tipos.has(b.tipo) ? 1 : 0) - (tipos.has(a.tipo) ? 1 : 0) || (b.preco ? 1 : 0) - (a.preco ? 1 : 0) || b.desconto - a.desconto);
+}
+function vencendo() {
+  const lim = addDias(hojeISO(), 2);
+  return [...C.interesses.values()].filter(r => r.lembrar_dias && r.ultima_compra && addDias(r.ultima_compra, r.lembrar_dias) <= lim)
+    .map(r => Object.assign({}, r, { tipo: C.tipos.find(t => t.id === r.tipo_id) || { nome: r.tipo_id, categoria: '' } }));
+}
+function dueBlock() {
+  const v = vencendo(); if (!v.length) return '';
+  return `<div class="due"><h3>Hora de recomprar</h3>${v.map(r => `<div class="due-i"><div><b>${esc(r.tipo.nome)}</b><small>Última compra em ${dmy(r.ultima_compra)} · lembrete a cada ${r.lembrar_dias} dias</small></div>
+    <div style="display:flex;gap:6px"><a class="mini" href="#${esc(r.tipo.categoria)}">Ver ofertas</a><button class="mini g" type="button" data-comprei="${esc(r.tipo_id)}">Comprei hoje</button></div></div>`).join('')}</div>`;
+}
+function paraVoceBlock() {
+  if (!SB) return '';
+  if (!C.carregado) return '';
+  if (!C.user) return `<div class="join"><div><b>Crie a conta da sua farmácia</b><p>Entre com o celular, marque o que a farmácia compra e receba lembrete de recompra e as ofertas do que interessa.</p></div><button class="btn green" type="button" data-abrir="up">Criar conta grátis</button></div>`;
+  if (!C.interesses.size) return `<div class="join"><div><b>Olá, ${esc(C.perfil ? C.perfil.nome.split(' ')[0] : '')}! Falta marcar o que a farmácia compra.</b><p>Com isso a gente mostra primeiro as ofertas que interessam e lembra você na hora de recomprar.</p></div><a class="btn green" href="#minha-farmacia">Marcar agora</a></div>`;
+  const l = ofertasDaFarmacia();
+  return dueBlock() + (l.length ? sec('pv', 'Para a <em>sua farmácia</em>', 'Ofertas do que você marcou que a farmácia compra.', l, 4, 'minha-farmacia') : '');
+}
+
+/* Página Minha farmácia */
+function contaView() {
+  const app = document.getElementById('app');
+  if (!SB) { app.innerHTML = `<section class="blk"><div class="notice"><div><b>Login indisponível no momento.</b><p>Tente de novo em alguns minutos.</p></div></div></section>`; return; }
+  if (!C.carregado) { app.innerHTML = `<section class="blk"><p class="small">Carregando…</p></section>`; return; }
+  if (!C.user || !C.perfil) { app.innerHTML = `<a class="back" href="#">← Todas as ofertas</a><div class="join" style="margin-top:20px"><div><b>Entre para ver a sua farmácia</b><p>Use o celular e a senha da sua conta, ou crie uma agora.</p></div><div style="display:flex;gap:8px"><button class="btn dark" type="button" data-abrir="in">Entrar</button><button class="btn green" type="button" data-abrir="up">Criar conta</button></div></div>`; return; }
+  const P = C.perfil;
+  const porCat = CATS.map(c => ({ c, tipos: C.tipos.filter(t => t.categoria === c.id) })).filter(x => x.tipos.length);
+  const opts = (v) => ['', 15, 30, 45, 60, 90, 180].map(n => `<option value="${n}" ${String(v || '') === String(n) ? 'selected' : ''}>${n ? 'Lembrar a cada ' + n + ' dias' : 'Sem lembrete'}</option>`).join('');
+  const l = ofertasDaFarmacia();
+  app.innerHTML = `
+  <a class="back" href="#">← Todas as ofertas</a>
+  <div class="acc-h"><div><span class="mono" style="color:var(--green)">Minha farmácia</span><h1>${esc(P.farmacia)}</h1><p>${esc(P.nome)} · ${esc(P.cidade)}/${esc(P.uf)} · ${esc(fmtTel(P.telefone))}</p></div>
+    <div class="acc-actions"><button class="btn ghost" type="button" id="bEdit">Editar dados</button><button class="btn ghost" type="button" id="bSair">Sair</button></div></div>
+  <form class="edit-box" id="fEdit" novalidate>
+    <div class="msg" id="mEd"></div>
+    <label class="fld"><span>Seu nome</span><input id="edNome" value="${esc(P.nome)}" maxlength="80"></label>
+    <label class="fld"><span>Nome da farmácia</span><input id="edFarm" value="${esc(P.farmacia)}" maxlength="120"></label>
+    <div class="row2"><label class="fld"><span>Cidade</span><input id="edCid" value="${esc(P.cidade)}" maxlength="80"></label>
+    <label class="fld"><span>UF</span><select id="edUf">${UFS.map(u => `<option ${u === P.uf ? 'selected' : ''}>${u}</option>`).join('')}</select></label></div>
+    <label class="chk"><input type="checkbox" id="edAceite" ${P.aceite_whatsapp ? 'checked' : ''}><span>Quero receber no WhatsApp ofertas e lembretes de recompra do AchadosMM.</span></label>
+    <button class="btn green" type="submit">Salvar dados</button>
+  </form>
+  ${dueBlock()}
+  <section class="blk" style="margin-top:28px">
+    <div class="sec-h"><div><h2>O que a sua farmácia <em>compra</em></h2><p>Toque nos itens que a farmácia usa. Em cada um, você pode pedir um lembrete de recompra.</p></div></div>
+    ${porCat.map(({ c, tipos }) => {
+      const sel = tipos.filter(t => C.interesses.has(t.id));
+      return `<div class="cat-box"><h3>${svg(c.id)}${esc(c.nome)}</h3>
+        <div class="chips2">${tipos.map(t => `<button type="button" class="tchip ${C.interesses.has(t.id) ? 'on' : ''}" data-tipo="${esc(t.id)}">${esc(t.nome)}</button>`).join('')}</div>
+        ${sel.length ? `<div class="cfg">${sel.map(t => { const r = C.interesses.get(t.id); return `<div class="cfg-i"><div><b>${esc(t.nome)}</b><small>${r.ultima_compra ? 'Última compra em ' + dmy(r.ultima_compra) + (r.lembrar_dias ? ' · próximo lembrete em ' + dmy(addDias(r.ultima_compra, r.lembrar_dias)) : '') : 'Sem compra registrada'}</small></div>
+          <select data-lembrar="${esc(t.id)}" aria-label="Lembrete de ${esc(t.nome)}">${opts(r.lembrar_dias)}</select>
+          <button type="button" class="mini" data-comprei="${esc(t.id)}">Comprei hoje</button></div>`; }).join('')}</div>` : ''}
+      </div>`; }).join('')}
+  </section>
+  ${l.length ? sec('pv2', 'Ofertas para a <em>sua farmácia</em>', 'Do que você marcou, com o preço conferido pela curadoria.', l, 0, '') : ''}
+  ${grupoBlock()}`;
+  document.getElementById('bSair').onclick = async () => { await SB.auth.signOut(); await carregarConta(); renderAccBtn(); location.hash = ''; route(); toast('Você saiu da conta'); };
+  document.getElementById('bEdit').onclick = () => document.getElementById('fEdit').classList.toggle('open');
+  document.getElementById('fEdit').onsubmit = async (e) => {
+    e.preventDefault();
+    const up = { nome: document.getElementById('edNome').value.trim(), farmacia: document.getElementById('edFarm').value.trim(), cidade: document.getElementById('edCid').value.trim(), uf: document.getElementById('edUf').value, aceite_whatsapp: document.getElementById('edAceite').checked };
+    if (up.nome.length < 2 || up.farmacia.length < 2 || up.cidade.length < 2) { msg('mEd', 'Preencha nome, farmácia e cidade.'); return; }
+    if (up.aceite_whatsapp && !P.aceite_whatsapp) up.aceite_em = new Date().toISOString();
+    const { data, error } = await SB.from('perfis').update(up).eq('user_id', C.user.id).select().maybeSingle();
+    if (error) { msg('mEd', 'Não foi possível salvar. Tente de novo.'); return; }
+    C.perfil = data; renderAccBtn(); contaView(); toast();
+  };
+}
+
+/* Ações (delegação) */
+async function toggleTipo(id) {
+  if (!C.user) return abrirAuth('in');
+  if (C.interesses.has(id)) {
+    const { error } = await SB.from('interesses').delete().eq('user_id', C.user.id).eq('tipo_id', id);
+    if (error) return toast('Não foi possível salvar');
+    C.interesses.delete(id);
+  } else {
+    const { data, error } = await SB.from('interesses').insert({ user_id: C.user.id, tipo_id: id }).select('tipo_id,lembrar_dias,ultima_compra').maybeSingle();
+    if (error) return toast('Não foi possível salvar');
+    C.interesses.set(id, data);
+  }
+  const y = window.scrollY; contaView(); window.scrollTo(0, y); toast();
+}
+async function atualizaInteresse(id, campos) {
+  const { data, error } = await SB.from('interesses').update(campos).eq('user_id', C.user.id).eq('tipo_id', id).select('tipo_id,lembrar_dias,ultima_compra').maybeSingle();
+  if (error || !data) return toast('Não foi possível salvar');
+  C.interesses.set(id, data);
+  const y = window.scrollY; if ((location.hash || '') === '#minha-farmacia') contaView(); else { const pv = document.getElementById('paraVoce'); if (pv) pv.innerHTML = paraVoceBlock(); }
+  window.scrollTo(0, y); toast();
+}
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('[data-tipo],[data-comprei],[data-abrir],a.go,a.thumb');
+  if (!t) return;
+  if (t.dataset.tipo) { toggleTipo(t.dataset.tipo); return; }
+  if (t.dataset.comprei) { atualizaInteresse(t.dataset.comprei, { ultima_compra: hojeISO() }); return; }
+  if (t.dataset.abrir) { abrirAuth(t.dataset.abrir); return; }
+  const card = t.closest('[data-oid]');
+  if (card && C.user && SB) { SB.from('cliques').insert({ user_id: C.user.id, oferta_id: card.dataset.oid, categoria: card.dataset.cat || null }).then(() => {}, () => {}); }
+});
+document.addEventListener('change', (e) => {
+  const s = e.target.closest('[data-lembrar]'); if (!s) return;
+  const v = s.value ? parseInt(s.value) : null;
+  const r = C.interesses.get(s.dataset.lembrar) || {};
+  const campos = { lembrar_dias: v };
+  if (v && !r.ultima_compra) campos.ultima_compra = hojeISO();
+  atualizaInteresse(s.dataset.lembrar, campos);
+});
+
+/* Modal Entrar / Criar conta */
+function abrirAuth(qual) {
+  if (!SB) return toast('Login indisponível no momento');
+  const m = document.getElementById('authModal'); m.classList.add('open');
+  modo(qual === 'up' ? 'up' : 'in');
+}
+function fecharAuth() { document.getElementById('authModal').classList.remove('open'); }
+function modo(q) {
+  document.getElementById('tabIn').classList.toggle('on', q === 'in'); document.getElementById('tabUp').classList.toggle('on', q === 'up');
+  document.getElementById('fIn').style.display = q === 'in' ? '' : 'none'; document.getElementById('fUp').style.display = q === 'up' ? '' : 'none';
+  msg('mIn', ''); msg('mUp', '');
+  setTimeout(() => { const f = document.getElementById(q === 'in' ? 'inTel' : 'upNome'); if (f) f.focus(); }, 50);
+}
+async function entrar(tel, senha) {
+  const { error } = await SB.auth.signInWithPassword({ email: `${tel}@${LOGIN_DOM}`, password: senha });
+  return error;
+}
+function initConta() {
+  document.getElementById('upUf').innerHTML = UFS.map(u => `<option ${u === 'SP' ? 'selected' : ''}>${u}</option>`).join('');
+  document.getElementById('accBtn').onclick = () => { if (C.user && C.perfil) location.hash = 'minha-farmacia'; else abrirAuth('in'); };
+  document.getElementById('authClose').onclick = fecharAuth;
+  document.getElementById('authModal').addEventListener('click', e => { if (e.target.id === 'authModal') fecharAuth(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharAuth(); });
+  document.getElementById('tabIn').onclick = () => modo('in');
+  document.getElementById('tabUp').onclick = () => modo('up');
+  document.getElementById('fIn').onsubmit = async (e) => {
+    e.preventDefault();
+    const tel = normTel(document.getElementById('inTel').value), pw = document.getElementById('inPw').value;
+    if (!tel) return msg('mIn', 'Digite o celular com DDD.');
+    if (!pw) return msg('mIn', 'Digite a senha.');
+    const b = document.getElementById('bIn'); b.disabled = true; b.textContent = 'Entrando…';
+    const err = await entrar(tel, pw);
+    b.disabled = false; b.textContent = 'Entrar';
+    if (err) return msg('mIn', /invalid/i.test(err.message) ? 'Celular ou senha não conferem.' : 'Não foi possível entrar agora. Tente de novo.');
+    await depoisDeEntrar(false);
+  };
+  document.getElementById('fUp').onsubmit = async (e) => {
+    e.preventDefault();
+    const dados = { nome: document.getElementById('upNome').value.trim(), telefone: document.getElementById('upTel').value, senha: document.getElementById('upPw').value, farmacia: document.getElementById('upFarm').value.trim(), cidade: document.getElementById('upCid').value.trim(), uf: document.getElementById('upUf').value, aceite_whatsapp: document.getElementById('upAceite').checked };
+    const tel = normTel(dados.telefone);
+    if (dados.nome.length < 2) return msg('mUp', 'Digite seu nome.');
+    if (!tel) return msg('mUp', 'Digite o celular com DDD.');
+    if (dados.senha.length < 6) return msg('mUp', 'A senha precisa ter pelo menos 6 caracteres.');
+    if (dados.farmacia.length < 2) return msg('mUp', 'Digite o nome da farmácia.');
+    if (dados.cidade.length < 2) return msg('mUp', 'Digite a cidade.');
+    const b = document.getElementById('bUp'); b.disabled = true; b.textContent = 'Criando conta…';
+    let r, j = {};
+    try {
+      r = await fetch(`${SB_URL}/functions/v1/cadastro`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: SB_KEY }, body: JSON.stringify(dados) });
+      j = await r.json().catch(() => ({}));
+    } catch (x) { r = null; }
+    if (!r || !r.ok) { b.disabled = false; b.textContent = 'Criar conta'; return msg('mUp', j.erro || 'Não foi possível criar a conta agora. Tente de novo.'); }
+    const err = await entrar(tel, dados.senha);
+    b.disabled = false; b.textContent = 'Criar conta';
+    if (err) { modo('in'); document.getElementById('inTel').value = dados.telefone; return msg('mIn', 'Conta criada! Agora entre com o celular e a senha.', true); }
+    await depoisDeEntrar(true);
+  };
+  if (SB) SB.auth.onAuthStateChange((ev) => { if (ev === 'SIGNED_OUT') { C.user = null; C.perfil = null; C.interesses = new Map(); renderAccBtn(); } });
+  carregarConta().then(() => {
+    renderAccBtn();
+    const h = (location.hash || '').slice(1);
+    if (h === 'minha-farmacia') contaView();
+    else { const pv = document.getElementById('paraVoce'); if (pv) pv.innerHTML = paraVoceBlock(); }
+  }).catch(() => { C.carregado = true; });
+}
+async function depoisDeEntrar(novo) {
+  await carregarConta(); renderAccBtn(); fecharAuth();
+  toast(novo ? 'Conta criada ✓' : 'Bem-vindo de volta ✓');
+  if (novo || !C.interesses.size) { if (location.hash === '#minha-farmacia') contaView(); else location.hash = 'minha-farmacia'; }
+  else route();
+}
+
 route();
+initConta();
 })();
 </script>
 </body>

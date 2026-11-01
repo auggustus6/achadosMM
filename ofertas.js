@@ -69,7 +69,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "mixer"
     },
     {
       "id": "mesa-antivibratoria-balanca",
@@ -89,7 +90,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "mesa-balanca"
     },
     {
       "id": "fogao-eletrico-cotherm",
@@ -109,7 +111,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "fogao-chapa"
     },
     {
       "id": "pisseta-500-nalgon",
@@ -129,7 +132,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "pisseta"
     },
     {
       "id": "espatulas-silicone-4",
@@ -149,7 +153,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "espatula"
     },
     {
       "id": "jarra-4000-nalgon",
@@ -169,7 +174,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "jarra-graduada"
     },
     {
       "id": "colher-descartavel-500",
@@ -189,7 +195,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "colher-descartavel"
     },
     {
       "id": "carrinho-auxiliar-3",
@@ -209,7 +216,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "carrinho-auxiliar"
     },
     {
       "id": "bomba-transferencia-magiflux",
@@ -229,7 +237,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": ""
     },
     {
       "id": "luva-nitrilica-vabene",
@@ -249,7 +258,8 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_645527-MLA118299459475_092026-F.jpg",
       "adicionadoEm": "2026-11-01",
       "vistoEm": "2026-11-01",
-      "ativo": true
+      "ativo": true,
+      "tipo": "luva"
     },
     {
       "id": "avental-impermeavel-5",
@@ -269,7 +279,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "jaleco-avental"
     },
     {
       "id": "dispenser-exaccta",
@@ -289,7 +300,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "dispenser"
     },
     {
       "id": "esponja-dupla-face-10",
@@ -309,7 +321,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "limpeza"
     },
     {
       "id": "rotulador-brother-pte110",
@@ -329,7 +342,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "etiquetadora"
     },
     {
       "id": "rotulador-brother-ptm95",
@@ -349,7 +363,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "etiquetadora"
     },
     {
       "id": "etiqueta-couche-33x21",
@@ -369,7 +384,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "etiqueta-adesiva"
     },
     {
       "id": "estrado-modular-50",
@@ -389,7 +405,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "estrado"
     },
     {
       "id": "escada-5-degraus",
@@ -409,7 +426,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "escada"
     },
     {
       "id": "banqueta-3-degraus",
@@ -429,7 +447,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "escada"
     },
     {
       "id": "veda-porta-2",
@@ -449,7 +468,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "veda-porta"
     },
     {
       "id": "fragmentadora-aurora",
@@ -469,7 +489,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "fragmentadora"
     },
     {
       "id": "guilhotina-a4",
@@ -489,7 +510,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "guilhotina"
     },
     {
       "id": "pasta-sanfonada-oficio-31",
@@ -509,7 +531,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "pastas-arquivo"
     },
     {
       "id": "pasta-sanfonada-boletos-31",
@@ -529,7 +552,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "pastas-arquivo"
     },
     {
       "id": "pasta-elastico-oficio-10",
@@ -549,7 +573,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "pastas-arquivo"
     },
     {
       "id": "pasta-sanfonada-a4-12",
@@ -569,7 +594,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "pastas-arquivo"
     },
     {
       "id": "organizador-triplo-acrimet",
@@ -589,7 +615,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "papelaria"
     },
     {
       "id": "caixa-correspondencia-tripla",
@@ -609,7 +636,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "papelaria"
     },
     {
       "id": "post-it-4-blocos",
@@ -629,7 +657,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "papelaria"
     },
     {
       "id": "tesoura-mundial",
@@ -649,7 +678,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "papelaria"
     },
     {
       "id": "clipes-450",
@@ -669,7 +699,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "papelaria"
     },
     {
       "id": "suporte-monitor-lidimar",
@@ -689,7 +720,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "suporte-monitor"
     },
     {
       "id": "suporte-monitor-elevado",
@@ -709,7 +741,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "suporte-monitor"
     },
     {
       "id": "impressora-brother-l5212",
@@ -729,7 +762,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "impressora"
     },
     {
       "id": "filtro-linha-5",
@@ -749,7 +783,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "nobreak-filtro"
     },
     {
       "id": "pilhas-aa-philips-32",
@@ -769,7 +804,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "pilhas"
     },
     {
       "id": "timer-foxlux-2",
@@ -789,7 +825,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": ""
     },
     {
       "id": "fone-com-fio",
@@ -809,7 +846,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "fone-headset"
     },
     {
       "id": "suporte-fita-masterprint",
@@ -829,7 +867,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "fita-adesiva"
     },
     {
       "id": "manguito-uv50",
@@ -849,7 +888,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "protecao-entregador"
     },
     {
       "id": "micro-ondas-electrolux-20",
@@ -869,7 +909,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "micro-ondas"
     },
     {
       "id": "aquecedor-britania",
@@ -889,7 +930,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "aquecedor"
     },
     {
       "id": "bule-termico-tramontina",
@@ -909,7 +951,8 @@ window.ACHADOS = {
       "imagem": "",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
-      "ativo": true
+      "ativo": true,
+      "tipo": "cafeteira-bule"
     },
     {
       "id": "pack-10-rolos-de-etiqueta-couche-adesiva",
@@ -929,7 +972,8 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_780564-MLA118971840043_102026-F.jpg",
       "adicionadoEm": "2026-11-01",
       "vistoEm": "2026-11-01",
-      "ativo": true
+      "ativo": true,
+      "tipo": "etiqueta-adesiva"
     },
     {
       "id": "10-rolos-de-etiqueta-termica-10x15-com-s",
@@ -949,7 +993,8 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_715078-MLB73680372643_122023-F.jpg",
       "adicionadoEm": "2026-11-01",
       "vistoEm": "2026-11-01",
-      "ativo": true
+      "ativo": true,
+      "tipo": "etiqueta-termica"
     },
     {
       "id": "papel-sulfite-a4-chamex-office-caixa-com",
@@ -969,7 +1014,8 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_796429-MLA99460702200_112025-F.jpg",
       "adicionadoEm": "2026-11-01",
       "vistoEm": "2026-11-01",
-      "ativo": true
+      "ativo": true,
+      "tipo": "papel-sulfite"
     }
   ]
 };
