@@ -1,7 +1,7 @@
 /* AchadosMM: base de ofertas. Gerado pela Curadoria AchadosMM (scripts/curadoria.py). Não editar à mão: o objeto abaixo é JSON puro. */
 window.ACHADOS = {
   "atualizadoEm": "2026-10-31",
-  "grupoUrl": "",
+  "grupoUrl": "https://chat.whatsapp.com/ED2lVVSjJfKFyvl9zoFuoP",
   "whatsappPedidos": "",
   "categorias": [
     {
