@@ -29,11 +29,14 @@ O site monta as seções sozinho a partir dos dados:
 - **Top ofertas:** itens com `preco` e `precoDe`, ordenados pelo maior desconto.
 - **Mais vendidos:** maiores valores em `vendidosNum`.
 - **Destaques do dia:** itens com `adicionadoEm` igual a `atualizadoEm`. Também alimentam o contador "N ofertas novas".
+- **Base AchadosMM:** desde 01/11/2026 o site traz a base completa (itens do dia a dia da farmácia com link de afiliado MSI). A tarefa "AchadosMM — preços da base" confere o preço dos itens de recompra todo dia, para o preço não expirar.
 - **Categorias:** uma aba e uma seção para cada item de `categorias`. Os links ficam como `/#laboratorio`, `/#epi` etc. e servem para mandar uma categoria direto no grupo.
 
 ## Campos da oferta
 
-`id`, `titulo`, `marca`, `categoria`, `loja`, `link` (de afiliado), `preco`, `precoDe`, `vendidos`, `vendidosNum`, `porQueVale`, `seloTecnico`, `full`, `freteGratis`, `imagem` (URL da foto ou arquivo em `img/`), `adicionadoEm`, `vistoEm`, `ativo`.
+`id`, `titulo`, `marca`, `categoria`, `loja`, `link` (de afiliado), `preco`, `precoDe`, `vendidos`, `vendidosNum`, `porQueVale`, `seloTecnico`, `full`, `freteGratis`, `imagem` (URL da foto ou arquivo em `img/`), `ciclo` (ciclo de recompra sugerido: Quinzenal, Mensal, Bimestral, Trimestral, Semestral ou Anual / sazonal; vazio = compra pontual), `mlb` (id do anúncio no Mercado Livre, só números), `adicionadoEm`, `vistoEm`, `ativo`.
+
+Itens com `ciclo` de quinzenal a semestral ganham o selo "Recompra mensal" (ou o ciclo correspondente) no card. Todo `link` é de afiliado da conta MSI (`https://meli.la/...`).
 
 Regra: `preco` e `precoDe` só com valor conferido na página no dia (`vistoEm`). Sem preço conferido, o campo fica `null` e o card mostra "Confira o preço do dia na loja".
 

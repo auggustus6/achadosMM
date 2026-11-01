@@ -116,6 +116,7 @@ h2{font-family:var(--head);font-weight:800;font-size:clamp(26px,3.4vw,34px);lett
 .b-best{background:var(--amber);color:#fff}
 .b-new{background:#fff;color:var(--ink);border:1px solid var(--line)}
 .b-tec{background:var(--green);color:#fff}
+.b-rec{background:#2E5E8C;color:#fff}
 .off{position:absolute;right:10px;bottom:10px;background:var(--ink);color:#fff;font-weight:700;font-size:13px;border-radius:999px;padding:4px 10px}
 .c-body{padding:14px 16px 14px;display:flex;flex-direction:column;flex:1}
 .store{align-self:flex-start;font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px;margin-bottom:8px}
@@ -429,6 +430,8 @@ function card(o){
   if(bestIds.has(o.id)) b.push('<span class="badge b-best">Mais vendido</span>');
   else if(o.adicionadoEm && o.adicionadoEm===HOJE && o.preco) b.push('<span class="badge b-new">Novo hoje</span>');
   if(o.seloTecnico) b.push('<span class="badge b-tec">Uso técnico</span>');
+  const REC={Quinzenal:'quinzenal',Mensal:'mensal',Bimestral:'bimestral',Trimestral:'trimestral',Semestral:'semestral'};
+  if(REC[o.ciclo]) b.push('<span class="badge b-rec">Recompra '+REC[o.ciclo]+'</span>');
   const img = o.imagem ? `<img src="${esc(o.imagem)}" alt="" loading="lazy">` : `<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`;
   const price = o.preco
     ? `<div class="price">${o.precoDe&&o.precoDe>o.preco?`<s>${brl(o.precoDe)}</s>`:''}<b>${brl(o.preco)}</b></div>`
