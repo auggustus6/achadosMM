@@ -7,17 +7,21 @@ Site estático com as ofertas do dia para farmácias de manipulação. A curador
 | Arquivo | O que é |
 |---|---|
 | `index.html` | Layout do site, com HTML, CSS e JS num arquivo só. No dia a dia, não precisa mexer. |
-| `ofertas.js` | Base de ofertas (`window.ACHADOS`). É o único arquivo que a curadoria diária altera. |
+| `ofertas.js` | Base de ofertas (`window.ACHADOS`, com JSON puro). É o único arquivo de dados que a curadoria altera, sempre pelo script. |
+| `scripts/curadoria.py` | Junta as ofertas do dia no `ofertas.js` e aplica as regras de preço e validade. |
 | `og.png` | Imagem de prévia quando o link é compartilhado no WhatsApp ou em redes sociais. |
 | `favicon.svg` | Ícone do site. |
 | `vercel.json` | Configuração da Vercel. O `ofertas.js` sai sem cache para a atualização aparecer na hora. |
 
 Não tem build. A Vercel publica a pasta como está, com Framework Preset "Other" e sem comando de build.
 
-## Atualização diária
+## Atualização diária (tarefa "Curadoria AchadosMM")
 
-1. A curadoria reescreve o `ofertas.js`. Ela ajusta `atualizadoEm`, adiciona ou atualiza ofertas e marca `ativo: false` nas que venceram.
-2. Faz commit e push na `main`. A Vercel publica sozinha.
+1. A curadoria coleta as ofertas no painel de Afiliados do Mercado Livre (conta MSI) e grava as postagens na planilha "Fila AchadosMM — ofertas farmácias", no Google Drive. Essa planilha é separada da Fila Baratinha.
+2. Ela monta o `novos.json` com as ofertas conferidas no dia e roda `python3 scripts/curadoria.py ofertas.js novos.json --hoje AAAA-MM-DD`. O script junta as ofertas novas com as que já existem e apaga os preços com mais de 7 dias. Quando não houver nada novo, ele imprime `SEM MUDANCA`.
+3. Faz commit e push na `main`. A Vercel publica sozinha.
+
+`python3 scripts/curadoria.py ofertas.js --resumo` mostra quantos itens têm preço conferido e link de afiliado.
 
 O site monta as seções sozinho a partir dos dados:
 
