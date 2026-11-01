@@ -44,3 +44,21 @@ Regra: `preco` e `precoDe` só com valor conferido na página no dia (`vistoEm`)
 ## Quando tiver domínio
 
 Trocar `og:image` no `index.html` para a URL absoluta, por exemplo `https://achados.mandamanipular.com/og.png`. O WhatsApp só mostra a prévia com URL absoluta.
+
+## Conta da farmácia (Supabase)
+
+Projeto Supabase **AchadosMM** (`gltxisnlyclsabtuhtjv`). O site usa só a chave publishable. A segurança fica nas regras (RLS) do banco.
+
+- **Criar conta:** edge function `cadastro`. Ela recebe nome, celular, senha, farmácia, cidade, UF e o aceite do WhatsApp. O celular vira o login interno `55DDDNUMERO@contas.achadosmm.mandamanipular.com`, já confirmado, sem SMS.
+- **Entrar:** `signInWithPassword` com esse login interno e a senha.
+- **Tabelas:**
+  - `perfis`: 1 por farmácia; o telefone não pode ser trocado pela própria conta.
+  - `tipos_produto`: catálogo de tipos.
+  - `interesses`: o que a farmácia compra, com `lembrar_dias` e `ultima_compra`.
+  - `cliques`: cliques em "Ver oferta" de quem está logado.
+- **Relatórios** (schema `relatorios`, que não sai pela API):
+  - `farmacias_interesses`;
+  - `lembretes_vencendo`: só quem aceitou o WhatsApp, vencendo em até 2 dias;
+  - `ranking_interesses`.
+- **Senha esquecida:** redefinir pelo painel do Supabase (Authentication → Users).
+- **Ligação com as ofertas:** `ofertas.js` tem o campo `tipo` (id de `tipos_produto`). Se a curadoria não informar, o `scripts/curadoria.py` deduz o tipo pelo título.

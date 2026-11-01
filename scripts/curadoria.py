@@ -27,6 +27,41 @@ CAMPOS = ['titulo', 'marca', 'categoria', 'loja', 'link', 'preco', 'precoDe', 'v
           'vendidosNum', 'tipo', 'porQueVale', 'seloTecnico', 'full', 'freteGratis', 'imagem', 'ativo']
 
 
+# Tipo de produto (id de public.tipos_produto no Supabase) deduzido pelo título
+# quando a curadoria não informa "tipo". Usado no site para casar ofertas com o
+# que cada farmácia marcou em "Minha farmácia".
+TIPOS_RE = [
+    ('mesa-balanca', r'mesa.*(anti.?vibra|balan)'), ('balanca-postal', r'balan\w* (postal|de envio|encomenda)'),
+    ('balanca-precisao', r'balan\w* .*(precis|anal[ií]tica|semi.?anal)'), ('termo-higrometro', r'higr[oô]metro'),
+    ('termometro-geladeira', r'term[oô]metro'), ('vidraria', r'b[ée]quer|proveta|bal[aã]o volum|erlenmeyer|vidraria'),
+    ('gral-pistilo', r'gral|pistilo|almofariz'), ('espatula', r'esp[aá]tula'), ('agitador-magnetico', r'agitador'),
+    ('banho-maria', r'banho.?maria'), ('fogao-chapa', r'fog[aã]o|chapa (el[eé]trica|aquecedora)|cooktop'),
+    ('mixer', r'mixer|homogeneizador|misturador'), ('cronometro', r'cron[oô]metro|timer'), ('pisseta', r'pisseta'),
+    ('jarra-graduada', r'jarra'), ('colher-descartavel', r'colher'), ('carrinho-auxiliar', r'carrinho'),
+    ('luva', r'\bluva'), ('touca-prope', r'touca|prop[eé]'), ('mascara', r'm[aá]scara'), ('jaleco-avental', r'jaleco|avental'),
+    ('dispenser', r'dispenser|saboneteira'), ('papel-toalha', r'papel toalha|interfolha'), ('limpeza', r'esponja|detergente|pano|desinfetante|rodo|vassoura|mop'),
+    ('etiquetadora', r'etiquetadora|rotulador'), ('ribbon', r'ribbon'), ('etiqueta-termica', r'etiqueta.*t[eé]rmica|t[eé]rmica.*etiqueta|10x15'),
+    ('etiqueta-adesiva', r'etiqueta'), ('estrado', r'estrado|pallet|palete'), ('caixa-organizadora', r'caixa organizadora|organizador.*(gaveta|caixa)'),
+    ('prateleira', r'prateleira|estante'), ('gaveteiro', r'gaveteiro'), ('escada', r'escada|banqueta'), ('veda-porta', r'veda.?porta'),
+    ('papel-sulfite', r'sulfite|papel a4|resma'), ('pastas-arquivo', r'pasta|arquivo morto|fichário'), ('fragmentadora', r'fragmentadora|trituradora'),
+    ('guilhotina', r'guilhotina'), ('papelaria', r'grampeador|clipe|clips|post.?it|tesoura|caneta|organizador'), ('calculadora', r'calculadora'),
+    ('impressora', r'impressora|toner|cartucho'), ('leitor-codigo', r'leitor.*c[oó]digo|scanner'), ('nobreak-filtro', r'nobreak|filtro de linha|r[eé]gua'),
+    ('suporte-monitor', r'suporte.*monitor'), ('roteador', r'roteador|repetidor|wi.?fi'), ('teclado-mouse', r'teclado|mouse'), ('pilhas', r'pilha|bateria'),
+    ('fone-headset', r'fone|headset'), ('suporte-celular', r'suporte.*celular'), ('bolsa-termica', r'bolsa t[eé]rmica|caixa t[eé]rmica|bag'),
+    ('fita-adesiva', r'fita (adesiva|durex|lacradora|transparente)|suporte.*fita'), ('envelope', r'envelope'), ('protecao-entregador', r'manguito|capa de chuva'),
+    ('cafeteira-bule', r'cafeteira|bule|garrafa t[eé]rmica'), ('micro-ondas', r'micro.?ondas'), ('frigobar', r'frigobar'),
+    ('bebedouro', r'bebedouro|purificador'), ('aquecedor', r'aquecedor'),
+]
+
+
+def tipo_por_titulo(t):
+    t = unicodedata.normalize('NFC', (t or '').lower())
+    for tid, rx in TIPOS_RE:
+        if re.search(rx, t):
+            return tid
+    return ''
+
+
 def load(path):
     s = open(path, encoding='utf-8').read()
     i = s.index('\n' + PREFIX) + 1 + len(PREFIX)
@@ -107,6 +142,8 @@ def main():
             o['vistoEm'] = a.hoje
             if o.get('precoDe') and o['precoDe'] <= o['preco']:
                 o['precoDe'] = None
+        if not o.get('tipo'):
+            o['tipo'] = tipo_por_titulo(o.get('titulo'))
         if n.get('destaque'):
             o['adicionadoEm'] = a.hoje
     # preço com mais de 7 dias deixa de ser mostrado
