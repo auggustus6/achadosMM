@@ -1,6 +1,6 @@
 /* AchadosMM: base de ofertas. Gerado pela Curadoria AchadosMM (scripts/curadoria.py). Não editar à mão: o objeto abaixo é JSON puro. */
 window.ACHADOS = {
-  "atualizadoEm": "2026-11-02",
+  "atualizadoEm": "2026-11-04",
   "grupoUrl": "https://chat.whatsapp.com/ED2lVVSjJfKFyvl9zoFuoP",
   "whatsappPedidos": "",
   "categorias": [
@@ -70,7 +70,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "mixer"
+      "tipo": "mixer",
+      "mlb": "7095335978"
     },
     {
       "id": "mesa-antivibratoria-balanca",
@@ -113,7 +114,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "fogao-chapa"
+      "tipo": "fogao-chapa",
+      "mlb": "5784087268"
     },
     {
       "id": "pisseta-500-nalgon",
@@ -134,7 +136,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "pisseta"
+      "tipo": "pisseta",
+      "mlb": "5094666954"
     },
     {
       "id": "espatulas-silicone-4",
@@ -177,7 +180,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "jarra-graduada"
+      "tipo": "jarra-graduada",
+      "mlb": "1950984361"
     },
     {
       "id": "colher-descartavel-500",
@@ -243,7 +247,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": ""
+      "tipo": "",
+      "mlb": "1770899640"
     },
     {
       "id": "luva-nitrilica-vabene",
@@ -309,7 +314,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "dispenser"
+      "tipo": "dispenser",
+      "mlb": "4485064330"
     },
     {
       "id": "esponja-dupla-face-10",
@@ -331,7 +337,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "limpeza",
-      "ciclo": "Mensal"
+      "ciclo": "Mensal",
+      "mlb": "5456907350"
     },
     {
       "id": "rotulador-brother-pte110",
@@ -352,7 +359,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "etiquetadora"
+      "tipo": "etiquetadora",
+      "mlb": "5331431266"
     },
     {
       "id": "rotulador-brother-ptm95",
@@ -373,7 +381,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "etiquetadora"
+      "tipo": "etiquetadora",
+      "mlb": "3837937223"
     },
     {
       "id": "etiqueta-couche-33x21",
@@ -417,7 +426,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "estrado"
+      "tipo": "estrado",
+      "mlb": "3652272999"
     },
     {
       "id": "escada-5-degraus",
@@ -459,7 +469,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "escada"
+      "tipo": "escada",
+      "mlb": "7895243002"
     },
     {
       "id": "veda-porta-2",
@@ -480,7 +491,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "veda-porta"
+      "tipo": "veda-porta",
+      "mlb": "4168567029"
     },
     {
       "id": "fragmentadora-aurora",
@@ -501,7 +513,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "fragmentadora"
+      "tipo": "fragmentadora",
+      "mlb": "5395397394"
     },
     {
       "id": "guilhotina-a4",
@@ -522,7 +535,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "guilhotina"
+      "tipo": "guilhotina",
+      "mlb": "3408127375"
     },
     {
       "id": "pasta-sanfonada-oficio-31",
@@ -544,7 +558,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "pastas-arquivo",
-      "ciclo": "Anual / sazonal"
+      "ciclo": "Anual / sazonal",
+      "mlb": "5985953570"
     },
     {
       "id": "pasta-sanfonada-boletos-31",
@@ -566,7 +581,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "pastas-arquivo",
-      "ciclo": "Anual / sazonal"
+      "ciclo": "Anual / sazonal",
+      "mlb": "4256182135"
     },
     {
       "id": "pasta-elastico-oficio-10",
@@ -588,7 +604,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "pastas-arquivo",
-      "ciclo": "Trimestral"
+      "ciclo": "Trimestral",
+      "mlb": "5377464886"
     },
     {
       "id": "pasta-sanfonada-a4-12",
@@ -610,7 +627,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "pastas-arquivo",
-      "ciclo": "Anual / sazonal"
+      "ciclo": "Anual / sazonal",
+      "mlb": "4870563142"
     },
     {
       "id": "organizador-triplo-acrimet",
@@ -652,7 +670,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "papelaria"
+      "tipo": "papelaria",
+      "mlb": "5274266158"
     },
     {
       "id": "post-it-4-blocos",
@@ -674,7 +693,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "papelaria",
-      "ciclo": "Bimestral"
+      "ciclo": "Bimestral",
+      "mlb": "3722345707"
     },
     {
       "id": "tesoura-mundial",
@@ -695,7 +715,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "papelaria"
+      "tipo": "papelaria",
+      "mlb": "3767933951"
     },
     {
       "id": "clipes-450",
@@ -738,7 +759,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "suporte-monitor"
+      "tipo": "suporte-monitor",
+      "mlb": "4610861226"
     },
     {
       "id": "suporte-monitor-elevado",
@@ -759,7 +781,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "suporte-monitor"
+      "tipo": "suporte-monitor",
+      "mlb": "2173694700"
     },
     {
       "id": "impressora-brother-l5212",
@@ -801,7 +824,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "nobreak-filtro"
+      "tipo": "nobreak-filtro",
+      "mlb": "3855133711"
     },
     {
       "id": "pilhas-aa-philips-32",
@@ -823,7 +847,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "pilhas",
-      "ciclo": "Bimestral"
+      "ciclo": "Bimestral",
+      "mlb": "7039646946"
     },
     {
       "id": "timer-foxlux-2",
@@ -865,7 +890,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "fone-headset"
+      "tipo": "fone-headset",
+      "mlb": "5237594222"
     },
     {
       "id": "suporte-fita-masterprint",
@@ -886,7 +912,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "fita-adesiva"
+      "tipo": "fita-adesiva",
+      "mlb": "3790036163"
     },
     {
       "id": "manguito-uv50",
@@ -908,7 +935,8 @@ window.ACHADOS = {
       "vistoEm": "",
       "ativo": true,
       "tipo": "protecao-entregador",
-      "ciclo": "Semestral"
+      "ciclo": "Semestral",
+      "mlb": "5904005600"
     },
     {
       "id": "micro-ondas-electrolux-20",
@@ -929,7 +957,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "micro-ondas"
+      "tipo": "micro-ondas",
+      "mlb": "1646212446"
     },
     {
       "id": "aquecedor-britania",
@@ -950,7 +979,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "aquecedor"
+      "tipo": "aquecedor",
+      "mlb": "5455125568"
     },
     {
       "id": "bule-termico-tramontina",
@@ -971,7 +1001,8 @@ window.ACHADOS = {
       "adicionadoEm": "2026-10-31",
       "vistoEm": "",
       "ativo": true,
-      "tipo": "cafeteira-bule"
+      "tipo": "cafeteira-bule",
+      "mlb": "5514410100"
     },
     {
       "id": "pack-10-rolos-de-etiqueta-couche-adesiva",
