@@ -15,10 +15,17 @@ Regras aplicadas:
   - preco/precoDe só valem com vistoEm = hoje; preço visto há mais de 7 dias é apagado
     (o card volta a "Confira o preço do dia na loja");
   - link precisa começar com https://; preco precisa ser número > 0;
-  - categoria precisa existir em "categorias".
+  - categoria precisa existir em "categorias";
+  - imagem precisa ser a foto do anúncio (https://http2.mlstatic.com/...): item novo sem foto
+    não entra, e o site só mostra itens com foto.
+
+  python3 scripts/curadoria.py ofertas.js --sem-foto lista.json   (grava os itens ativos sem foto,
+    para a curadoria buscar a imagem no painel; use o id deles no novos.json com o campo imagem)
 Imprime "SEM MUDANCA" quando nada mudou.
 """
 import argparse, datetime as dt, json, re, sys, unicodedata
+
+IMG_RE = re.compile(r'^https://http2\.mlstatic\.com/\S+\.(jpg|jpeg|png|webp)$')
 
 PREFIX = 'window.ACHADOS = '
 HEAD = ('/* AchadosMM: base de ofertas. Gerado pela Curadoria AchadosMM (scripts/curadoria.py). '
@@ -86,11 +93,12 @@ def resumo(d, hoje):
     com_preco = [o for o in of if o.get('preco')]
     afil = [o for o in of if str(o.get('link', '')).startswith('https://meli.la/')]
     novos = [o for o in of if o.get('adicionadoEm') == hoje and o.get('preco')]
+    sem_foto = [o for o in of if not IMG_RE.match(o.get('imagem') or '')]
     por_cat = {}
     for o in of:
         por_cat[o['categoria']] = por_cat.get(o['categoria'], 0) + 1
     print(f"itens ativos: {len(of)} | com preço conferido: {len(com_preco)} | com link de afiliado: {len(afil)} "
-          f"| sem link de afiliado: {len(of) - len(afil)} | destaques de {hoje}: {len(novos)}")
+          f"| sem link de afiliado: {len(of) - len(afil)} | sem foto (fora do site): {len(sem_foto)} | destaques de {hoje}: {len(novos)}")
     print('por categoria: ' + ', '.join(f'{k} {v}' for k, v in sorted(por_cat.items())))
 
 
@@ -100,8 +108,15 @@ def main():
     ap.add_argument('novos', nargs='?')
     ap.add_argument('--hoje', default=dt.date.today().isoformat())
     ap.add_argument('--resumo', action='store_true')
+    ap.add_argument('--sem-foto', metavar='ARQ')
     a = ap.parse_args()
     d = load(a.ofertas)
+    if a.sem_foto:
+        lst = [{k: o.get(k, '') for k in ('id', 'titulo', 'marca', 'categoria', 'tipo', 'mlb', 'link')}
+               for o in d['ofertas'] if o.get('ativo', True) and not IMG_RE.match(o.get('imagem') or '')]
+        json.dump(lst, open(a.sem_foto, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        print(f'{len(lst)} itens ativos sem foto gravados em {a.sem_foto}')
+        return
     if a.resumo or not a.novos:
         resumo(d, a.hoje)
         return
@@ -119,8 +134,12 @@ def main():
             erros.append(f'link inválido: {t}'); continue
         if n.get('preco') is not None and not (isinstance(n['preco'], (int, float)) and n['preco'] > 0):
             erros.append(f'preço inválido: {t}'); continue
+        if n.get('imagem') and not IMG_RE.match(str(n['imagem'])):
+            erros.append(f"imagem inválida (precisa ser https://http2.mlstatic.com/...): {t or n.get('id')}"); continue
         o = by_id.get(n.get('id')) or by_key.get(key(t))
         if o is None:
+            if not n.get('imagem'):
+                erros.append(f'item novo sem foto (imagem do card): {t or n}'); continue
             if not (t and n.get('categoria') and n.get('link')):
                 erros.append(f'item novo sem titulo/categoria/link: {t or n}'); continue
             base = slug(t); nid = base; i = 2

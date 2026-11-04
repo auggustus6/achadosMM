@@ -383,7 +383,8 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
 const D = window.ACHADOS || {categorias:[],ofertas:[]};
 const CATS = D.categorias || [];
 const catById = Object.fromEntries(CATS.map(c=>[c.id,c]));
-const ALL = (D.ofertas||[]).filter(o=>o.ativo!==false).map(o=>{
+// Só entra no site item com foto do anúncio (sem foto, o card fica de fora até a curadoria trazer a imagem).
+const ALL = (D.ofertas||[]).filter(o=>o.ativo!==false && /^https:\/\/http2\.mlstatic\.com\//.test(o.imagem||'')).map(o=>{
   const d = (o.preco && o.precoDe && o.precoDe>o.preco) ? Math.round((1-o.preco/o.precoDe)*100) : 0;
   return Object.assign({},o,{desconto:d});
 });
@@ -432,7 +433,7 @@ function card(o){
   if(o.seloTecnico) b.push('<span class="badge b-tec">Uso técnico</span>');
   const REC={Quinzenal:'quinzenal',Mensal:'mensal',Bimestral:'bimestral',Trimestral:'trimestral',Semestral:'semestral'};
   if(REC[o.ciclo]) b.push('<span class="badge b-rec">Recompra '+REC[o.ciclo]+'</span>');
-  const img = o.imagem ? `<img src="${esc(o.imagem)}" alt="" loading="lazy">` : `<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`;
+  const img = o.imagem ? `<img src="${esc(o.imagem)}" alt="" loading="lazy" onerror="var a=this.closest('article');if(a)a.remove()">` : `<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`;
   const price = o.preco
     ? `<div class="price">${o.precoDe&&o.precoDe>o.preco?`<s>${brl(o.precoDe)}</s>`:''}<b>${brl(o.preco)}</b></div>`
     : `<div class="price"><span class="np">Confira o preço do dia na loja</span></div>`;
@@ -522,7 +523,7 @@ function startFeat(f){
   const draw=()=>{
     const o=f[i], c=catById[o.categoria]||{};
     const el=document.getElementById('feat'); if(!el){clearInterval(featTimer);return;}
-    el.innerHTML = `<a class="thumb" href="${esc(o.link)}" target="_blank" rel="noopener sponsored" style="background:${TINT[o.categoria]||'#EEE'}">${o.imagem?`<img src="${esc(o.imagem)}" alt="">`:`<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`}${o.desconto>0?`<span class="off">-${o.desconto}% hoje</span>`:''}</a>
+    el.innerHTML = `<a class="thumb" href="${esc(o.link)}" target="_blank" rel="noopener sponsored" style="background:${TINT[o.categoria]||'#EEE'}">${o.imagem?`<img src="${esc(o.imagem)}" alt="" onerror="this.style.visibility='hidden'">`:`<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`}${o.desconto>0?`<span class="off">-${o.desconto}% hoje</span>`:''}</a>
       <div class="feat-b"><span class="store ${storeCls(o.loja)}">${esc(o.loja)}</span><h3>${esc(o.titulo)}</h3>
       <div class="buy">${o.precoDe&&o.precoDe>o.preco?`<div class="price"><s>${brl(o.precoDe)}</s><b>${brl(o.preco)}</b></div>`:`<div class="price"><b>${brl(o.preco)}</b></div>`}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">Ver oferta</a></div></div>`;
     document.getElementById('fdots').innerHTML = `Oferta ${i+1} de ${f.length} ` + f.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('');
