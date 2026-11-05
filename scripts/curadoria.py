@@ -58,6 +58,28 @@ TIPOS_RE = [
     ('fita-adesiva', r'fita (adesiva|durex|lacradora|transparente)|suporte.*fita'), ('envelope', r'envelope'), ('protecao-entregador', r'manguito|capa de chuva'),
     ('cafeteira-bule', r'cafeteira|bule|garrafa t[eé]rmica'), ('micro-ondas', r'micro.?ondas'), ('frigobar', r'frigobar'),
     ('bebedouro', r'bebedouro|purificador (de [aá]gua|hidro)|hidrofiltros|refil ibbl'), ('aquecedor', r'aquecedor'),
+    # tipos da revisão de 05/11/2026 (só entram quando nenhum tipo acima casou)
+    ('phmetro', r'\bph\b|phmetro|condutiv|solu[cç][aã]o tamp[aã]o'),
+    ('instrumentos-cq', r'ponto de fus[aã]o|man[oô]metro|paqu[ií]metro|\blupa\b|term[oô]metro'),
+    ('encapsuladora', r'encapsulad|contador de c[aá]psulas'), ('purificacao-agua', r'osmose|deionizador|refil.*micras'),
+    ('equipamentos-lab', r'estufa|capela|seladora|ultrass[oô]nica'),
+    ('utensilios-lab', r'pipeta|tamis|pin[cç]a|placa de vidro|papel (de )?pesagem|papel filtro|barquinha|seringa|autoclave|s[ií]lica gel'),
+    ('residuos', r'lixeira|saco de lixo|perfurocortante'), ('higiene-maos', r'[aá]lcool gel|sabonete'),
+    ('protecao-individual', r'[oó]culos de prote|face shield|protetor facial|sapato|cal[cç]ado'),
+    ('papel-higienico', r'papel higi[eê]nico|len[cç]o de papel'), ('primeiros-socorros', r'primeiros socorros|lava.?olhos'),
+    ('iluminacao', r'l[aâ]mpada|lumin[aá]ria|plafon|interruptor'),
+    ('seguranca', r'c[aâ]mera|cadeado|alarme|sensor de presen|fechadura|detector de fuma'),
+    ('armario', r'arm[aá]rio|roupeiro|cabideiro'), ('controle-pragas', r'armadilha|mosquiteira|insetos'),
+    ('climatizacao', r'ar.?condicionado|cortina de ar|ventilador|desumidificador'), ('sinalizacao', r'placa|cone |fita zebrada'),
+    ('manutencao', r'parafus|veda rosca|fita isolante|ferramenta|trena|silicone|tinta|n[ií]vel'),
+    ('mobiliario', r'cadeira|longarina|ergon[oô]mic|antifadiga'), ('financeiro', r'cofre|malote|c[eé]dulas'),
+    ('rotina-equipe', r'quadro|crach[aá]|rel[oó]gio de ponto|medalha'),
+    ('computador', r'computador|\bpc\b|monitor|tablet|notebook|webcam|mem[oó]ria ram|celular|power bank|carregador'),
+    ('rede-cabos', r'cabo|rj45|switch|\bssd\b|\bhd\b|pendrive|canaleta|abra[cç]adeira|certificado digital'),
+    ('balcao', r'gaveta de dinheiro|troco|expositor|display|campainha|sineta|cestinha|painel de senha|precificador|bobina'),
+    ('foto-video', r'ring light|trip[eé]|est[uú]dio fotogr|microfone'), ('decoracao', r'natal|guirlanda|pisca'),
+    ('acessorio-moto', r'\bmoto\b|ba[uú] '), ('descartaveis-copa', r'copo descart|guardanapo|filtro de papel|filme pvc'),
+    ('utensilios-copa', r'caneca|faqueiro|pote de vidro|sanduicheira|squeeze'),
 ]
 
 
