@@ -421,7 +421,11 @@ const priced = ALL.filter(o=>o.preco);
 const top = priced.filter(o=>o.desconto>0).sort((a,b)=>b.desconto-a.desconto);
 const best = ALL.filter(o=>o.vendidosNum>0).sort((a,b)=>b.vendidosNum-a.vendidosNum);
 const bestIds = new Set(best.slice(0,8).map(o=>o.id));
-const today = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm===HOJE && o.preco);
+const REC_ON = {Quinzenal:1,Mensal:1,Bimestral:1,Trimestral:1,Semestral:1};
+const isRec = o => !!REC_ON[o.ciclo];
+/* recorrência: o que a farmácia compra sempre, com o melhor desconto primeiro */
+const rec = priced.filter(isRec).sort((a,b)=>(b.desconto||0)-(a.desconto||0) || (b.vendidosNum||0)-(a.vendidosNum||0));
+const today = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm===HOJE && o.preco).sort((a,b)=>(isRec(b)?1:0)-(isRec(a)?1:0) || (b.desconto||0)-(a.desconto||0));
 const weekAgo = (()=>{ if(!HOJE) return ''; const d=new Date(HOJE+'T12:00:00'); d.setDate(d.getDate()-6); return d.toISOString().slice(0,10); })();
 const week = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm>=weekAgo && o.preco);
 
@@ -468,6 +472,7 @@ function sec(id, title, sub, list, n, moreHash){
 /* Tabs */
 function renderTabs(active){
   const t = [`<a class="tab ${!active?'on':''}" href="#">${svg('all')}Todos</a>`];
+  if(rec.length) t.push(`<a class="tab ${active==='recompra'?'on':''}" href="#recompra">${svg('bag')}Recompra</a>`);
   if(top.length) t.push(`<a class="tab ${active==='top-ofertas'?'on':''}" href="#top-ofertas">${svg('fire')}Top ofertas</a>`);
   if(best.length) t.push(`<a class="tab ${active==='mais-vendidos'?'on':''}" href="#mais-vendidos">${svg('star')}Mais vendidos</a>`);
   CATS.forEach(c=>{ if(ALL.some(o=>o.categoria===c.id)) t.push(`<a class="tab ${active===c.id?'on':''}" href="#${c.id}">${svg(c.id)}${esc(c.curto||c.nome)}</a>`); });
@@ -478,7 +483,9 @@ function renderTabs(active){
 /* Home */
 let featTimer=null;
 function home(){
-  const feats = (top.length?top:priced).slice(0,5);
+  const recTop = rec.filter(o=>o.desconto>0).slice(0,3);
+  const mix = [...recTop, ...top.filter(o=>!recTop.includes(o))].slice(0,5);
+  const feats = mix.length ? mix : priced.slice(0,5);
   let heroR;
   if(feats.length){
     heroR = `<div class="feat" id="feat"></div><div class="dots" id="fdots"></div>`;
@@ -510,6 +517,7 @@ function home(){
   <div id="paraVoce">${C.user ? '' : paraVoceBlock()}</div>
   <div id="ofertas"></div>
   ${noPrices ? `<section class="blk"><div class="notice"><span class="ic">${svg('sun')}</span><div><b>As ofertas do dia entram aqui.</b><p>Assim que a curadoria conferir os preços, aparecem as seções Top ofertas, Mais vendidos e Destaques do dia. Enquanto isso, veja abaixo o catálogo do que a farmácia usa no dia a dia.</p></div></div></section>` : ''}
+  ${sec('rec','Reposição <em>do mês</em>','O que a farmácia compra sempre, com o melhor preço da curadoria. Garanta a recompra antes de faltar.',rec,8,'recompra')}
   ${sec('top','Top <em>ofertas</em>','Os maiores descontos da curadoria, conferidos na loja.',top,8,'top-ofertas')}
   ${sec('best','Mais vendidos','Produtos com milhares de vendas e boa avaliação.',best,4,'mais-vendidos')}
   ${sec('today','Destaques do dia',`Ofertas selecionadas em ${dm(HOJE)}.`,today,8,'')}
@@ -588,6 +596,7 @@ function route(){
   renderTabs(h && !['grupo','ofertas','minha-farmacia'].includes(h) ? h : '');
   if(catById[h]){ const c=catById[h]; const l=ALL.filter(o=>o.categoria===h); listView('Categoria',esc(c.nome),`${l.length} ${l.length===1?'item':'itens'} na curadoria`,l); window.scrollTo(0,0); return; }
   if(h==='minha-farmacia'){ contaView(); window.scrollTo(0,0); return; }
+  if(h==='recompra'){ listView('Recompra','Reposição <em>do mês</em>','Itens de compra recorrente da farmácia, do maior desconto para o menor.',rec); window.scrollTo(0,0); return; }
   if(h==='top-ofertas'){ listView('Top ofertas','Top <em>ofertas</em>','Os maiores descontos conferidos pela curadoria.',top); window.scrollTo(0,0); return; }
   if(h==='mais-vendidos'){ listView('Mais vendidos','Mais vendidos','Produtos com mais vendas nas lojas.',best); window.scrollTo(0,0); return; }
   home();

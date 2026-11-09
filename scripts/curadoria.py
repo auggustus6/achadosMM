@@ -83,6 +83,7 @@ TIPOS_RE = [
     ('foto-video', r'ring light|trip[eé]|est[uú]dio fotogr|microfone'), ('decoracao', r'natal|guirlanda|pisca'),
     ('acessorio-moto', r'\bmoto\b|ba[uú] '), ('descartaveis-copa', r'copo descart|guardanapo|filtro de papel|filme pvc'),
     ('utensilios-copa', r'caneca|faqueiro|pote de vidro|sanduicheira|squeeze'),
+    ('embalagem-envio', r'almofada de ar|pl[aá]stico bolha|caixa de papel[aã]o|caixas de papel[aã]o|saco pl[aá]stico'),
 ]
 
 
