@@ -72,4 +72,4 @@ Todo card de oferta (e o carrossel do topo) tem dois botões:
 - **Copiar link:** copia o link de afiliado (meli.la) da oferta.
 - **Compartilhar:** no celular abre o menu de compartilhar do aparelho; no computador abre o WhatsApp com a mensagem pronta.
 
-A mensagem segue o mesmo formato da postagem do grupo (tarefas "Curadoria AchadosMM" e "AchadosMM — envio ao grupo"), com a linha "🛒 Mais achados para a farmácia: https://achadosmm.vercel.app" antes da hashtag. Se mudar o formato do post, mude nos três lugares: `textoOferta()` no `index.html` e as duas tarefas.
+A mensagem segue o mesmo formato da postagem do grupo (tarefas "Curadoria AchadosMM" e "AchadosMM — envio ao grupo"), e termina com "🛒 Veja todas as ofertas do dia para a sua farmácia: https://achadosmm.vercel.app" e "#AchadosMM | by MandaManipular.com" (sem a frase "Link de parceiro", decisão de 09/11). Se mudar o formato do post, mude nos três lugares: `textoOferta()` no `index.html` e as duas tarefas.

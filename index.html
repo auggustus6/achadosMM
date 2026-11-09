@@ -821,7 +821,7 @@ function textoOferta(o) {
   if (REC_ON[o.ciclo]) l.push(`🔁 Recompra ${o.ciclo.toLowerCase()}: hora de repor o estoque`);
   if (o.seloTecnico) l.push('🔬 Uso técnico: confira as especificações no anúncio');
   if (o.full) l.push('🚚 Full: chega rápido'); else if (o.freteGratis) l.push('🚚 Frete grátis');
-  l.push('', `🔗 ${o.link}`, '', `🛒 Mais achados para a farmácia: ${SITE}`, '#AchadosMM | by MandaManipular.com', '_Link de parceiro: você paga o mesmo preço._');
+  l.push('', `🔗 ${o.link}`, '', `🛒 Veja todas as ofertas do dia para a sua farmácia: ${SITE}`, '#AchadosMM | by MandaManipular.com');
   return l.join('\n');
 }
 async function copiarTexto(t) {
