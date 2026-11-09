@@ -236,6 +236,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
 .saved{position:fixed;left:50%;top:84px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;z-index:70;opacity:0;transition:opacity .2s;pointer-events:none}
 .saved.show{opacity:1}
 .join{margin-top:16px;background:#fff;border:1.5px dashed var(--green);border-radius:var(--r);padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+#paraVoce > .join,#paraVoce > .due{margin-top:28px}
 .join b{font-family:var(--head);font-size:21px;letter-spacing:-.02em;display:block}
 .join p{margin:4px 0 0;color:var(--ink2);font-size:14px;max-width:560px}
 @media (max-width:680px){
@@ -270,7 +271,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
   .bar{height:auto;flex-wrap:wrap;padding:12px 0 10px;gap:10px}
   .search{order:3;flex-basis:100%;max-width:none;height:42px}
   .btn-group{margin-left:auto;height:40px;padding-left:12px;font-size:14px}
-  #pvTop .join,#pvTop .due{margin-top:14px}
+  #paraVoce > .join,#paraVoce > .due{margin-top:22px}
   .btn-group .lbl-long{display:none}
   .bar .logo img{height:38px}
   .hero{border-radius:22px;margin-top:16px}
@@ -502,7 +503,6 @@ function home(){
   }).join('');
   const noPrices = !priced.length;
   document.getElementById('app').innerHTML = `
-  <div id="pvTop">${C.user ? paraVoceBlock() : ''}</div>
   <section class="hero">
     <div class="hero-l">
       <div class="chips"><span class="chip mono"><i></i>Curadoria diária</span><span class="chip mono">Só para farmácia de manipulação</span></div>
@@ -514,13 +514,13 @@ function home(){
   </section>
   <div id="ofertas"></div>
   ${sec('rec','Reposição <em>do mês</em>','O que a farmácia compra sempre, com o melhor preço da curadoria. Garanta a recompra antes de faltar.',rec,8,'recompra','rep','Destaque')}
+  <div id="paraVoce">${paraVoceBlock()}</div>
   <div class="values">
     <div class="value"><span class="ic">${svg('sun')}</span><div><b>Seleção diária</b><p>Lista nova a cada curadoria, com o preço do dia.</p></div></div>
     <div class="value"><span class="ic">${svg('bag')}</span><div><b>Compra direto na loja</b><p>Pagamento, frete e garantia do próprio marketplace.</p></div></div>
     <div class="value"><span class="ic">${svg('laboratorio')}</span><div><b>Só o que a farmácia usa</b><p>Bancada, EPI, etiquetagem, estoque e escritório.</p></div></div>
     <div class="value"><span class="ic">${svg('tec')}</span><div><b>Selo Uso técnico</b><p>Destaque para itens ligados às boas práticas.</p></div></div>
   </div>
-  <div id="paraVoce">${C.user ? '' : paraVoceBlock()}</div>
   ${noPrices ? `<section class="blk"><div class="notice"><span class="ic">${svg('sun')}</span><div><b>As ofertas do dia entram aqui.</b><p>Assim que a curadoria conferir os preços, aparecem as seções Top ofertas, Mais vendidos e Destaques do dia. Enquanto isso, veja abaixo o catálogo do que a farmácia usa no dia a dia.</p></div></div></section>` : ''}
   ${sec('top','Top <em>ofertas</em>','Os maiores descontos da curadoria, conferidos na loja.',top,8,'top-ofertas')}
   ${sec('best','Mais vendidos','Produtos com milhares de vendas e boa avaliação.',best,4,'mais-vendidos')}
@@ -703,7 +703,7 @@ function dueBlock() {
   return `<div class="due"><h3>Hora de recomprar</h3>${v.map(r => `<div class="due-i"><div><b>${esc(r.tipo.nome)}</b><small>Última compra em ${dmy(r.ultima_compra)} · lembrete a cada ${r.lembrar_dias} dias</small></div>
     <div style="display:flex;gap:6px"><a class="mini" href="#${esc(r.tipo.categoria)}">Ver ofertas</a><button class="mini g" type="button" data-comprei="${esc(r.tipo_id)}">Comprei hoje</button></div></div>`).join('')}</div>`;
 }
-function renderPV() { const t = document.getElementById('pvTop'), m = document.getElementById('paraVoce'); if (t) t.innerHTML = C.user ? paraVoceBlock() : ''; if (m) m.innerHTML = C.user ? '' : paraVoceBlock(); }
+function renderPV() { const m = document.getElementById('paraVoce'); if (m) m.innerHTML = paraVoceBlock(); }
 function paraVoceBlock() {
   if (!SB) return '';
   if (!C.carregado) return '';
