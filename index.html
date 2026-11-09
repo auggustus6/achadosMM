@@ -139,6 +139,12 @@ h2{font-family:var(--head);font-weight:800;font-size:clamp(26px,3.4vw,34px);lett
 .go{background:var(--ink);color:#fff;border-radius:999px;height:38px;padding:0 15px;display:inline-flex;align-items:center;font-weight:600;font-size:13.5px;white-space:nowrap;flex-shrink:0;transition:.15s}
 .go:hover{background:var(--green)}
 .seen{font-size:11.5px;color:var(--muted);margin:10px 0 0}
+.acts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin-top:10px}
+.act{height:34px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:12.5px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:0 8px;white-space:nowrap;overflow:hidden;transition:.15s;-webkit-tap-highlight-color:transparent}
+.act svg{width:15px;height:15px;flex-shrink:0}
+.act:hover{border-color:var(--green);color:var(--green)}
+.act.done{background:var(--green);border-color:var(--green);color:#fff}
+.act .s{display:none}
 
 /* Banner / CTA */
 .notice{background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:26px;display:flex;gap:16px;align-items:center}
@@ -284,6 +290,10 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 20px;colo
   .price b{font-size:17px}
   .buy{flex-direction:column;align-items:stretch;gap:8px}
   .go{justify-content:center;height:36px}
+  .acts{gap:6px;margin-top:8px}
+  .act{height:32px;font-size:12px;gap:5px;padding:0 6px}
+  .act .l{display:none}
+  .act .s{display:inline}
   .values{grid-template-columns:1fr 1fr;gap:8px}
   .value{padding:12px;flex-direction:column;gap:8px}
   .value p{font-size:12.5px}
@@ -411,6 +421,9 @@ const IC = {
   star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   bag:'<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
+  link:'<path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/>',
+  share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/>',
+  ok:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
   chat:'<path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/>',
   tec:'<path d="M9 3h6M10 3v5l-2 3h8l-2-3V3"/><path d="M6 21h12M8 11l-1 10M16 11l1 10"/>'
 };
@@ -461,6 +474,7 @@ function card(o){
       ${o.vendidos?`<p class="sold">${esc(o.vendidos)}</p>`:''}
       ${ship?`<p class="ship">${ship}</p>`:''}
       <div class="buy">${price}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">${o.preco?'Ver oferta':'Ver na loja'}</a></div>
+      <div class="acts"><button class="act" type="button" data-copiar="${esc(o.id)}" aria-label="Copiar link da oferta">${svg('link')}<span class="l">Copiar link</span><span class="s">Copiar</span></button><button class="act" type="button" data-compartilhar="${esc(o.id)}" aria-label="Compartilhar oferta">${svg('share')}<span class="l">Compartilhar</span><span class="s">Enviar</span></button></div>
       ${o.preco&&o.vistoEm?`<p class="seen">Preço visto em ${dm(o.vistoEm)}</p>`:''}
     </div>
   </article>`;
@@ -792,6 +806,43 @@ document.addEventListener('click', (e) => {
   if (t.dataset.abrir) { abrirAuth(t.dataset.abrir); return; }
   const card = t.closest('[data-oid]');
   if (card && C.user && SB) { SB.from('cliques').insert({ user_id: C.user.id, oferta_id: card.dataset.oid, categoria: card.dataset.cat || null }).then(() => {}, () => {}); }
+});
+/* Copiar link e compartilhar a oferta (link de afiliado + texto no formato do grupo) */
+function textoOferta(o) {
+  const l = [`🧪 *${o.titulo}*`];
+  if (o.preco) l.push(o.precoDe && o.precoDe > o.preco ? `💰 De ~${brl(o.precoDe)}~ por *${brl(o.preco)}*` : `💰 *${brl(o.preco)}*`);
+  if (o.porQueVale) l.push(`✅ Por que vale: ${o.porQueVale}`);
+  const envio = o.full ? '⚡ Full, chega rápido' : (o.freteGratis ? 'Frete grátis' : '');
+  if (envio) l.push(`🚚 ${envio}`);
+  l.push(`🔗 ${o.link}`, '', `Mais achados para a farmácia: ${location.origin}`, '#AchadosMM | by MandaManipular.com', '_Link de parceiro: você paga o mesmo preço._');
+  return l.join('\n');
+}
+async function copiarTexto(t) {
+  try { await navigator.clipboard.writeText(t); return true; } catch (e) {}
+  try { const a = document.createElement('textarea'); a.value = t; a.setAttribute('readonly', ''); a.style.cssText = 'position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length); const ok = document.execCommand('copy'); a.remove(); return ok; } catch (e) { return false; }
+}
+function marcaFeito(b, txt) {
+  const html = b.innerHTML; b.classList.add('done'); b.innerHTML = `${svg('ok')}<span>${txt}</span>`;
+  clearTimeout(b._t); b._t = setTimeout(() => { b.classList.remove('done'); b.innerHTML = html; }, 1800);
+}
+const ehCelular = () => matchMedia('(pointer:coarse)').matches;
+document.addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-copiar],[data-compartilhar]'); if (!b) return;
+  e.preventDefault();
+  const id = b.dataset.copiar || b.dataset.compartilhar;
+  const o = ALL.find(x => x.id === id); if (!o) return;
+  if (b.dataset.copiar) {
+    if (b.classList.contains('done')) return;
+    if (await copiarTexto(o.link)) { marcaFeito(b, 'Copiado'); toast('Link copiado ✓'); }
+    else { window.prompt('Copie o link:', o.link); }
+    return;
+  }
+  const texto = textoOferta(o);
+  if (ehCelular() && navigator.share) {
+    try { await navigator.share({ title: o.titulo, text: texto }); return; }
+    catch (err) { if (err && err.name === 'AbortError') return; }
+  }
+  window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank', 'noopener');
 });
 document.addEventListener('change', (e) => {
   const s = e.target.closest('[data-lembrar]'); if (!s) return;
