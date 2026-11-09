@@ -90,8 +90,8 @@ TIPOS_RE = [
 # de calibração informado no anúncio, ou de marca de laboratório. Nunca de cozinha,
 # bolso, joia, aquário ou "5 em 1".
 TIPOS_MEDICAO = {'balanca-precisao', 'termo-higrometro', 'termometro-geladeira', 'phmetro', 'instrumentos-cq'}
-MEDICAO_OK = re.compile(r'inmetro|certificad|\brbc\b|marte|shimadzu|\bbel\b|gehaka|urano|incoterm|instrutherm|akso|akrom|testo|milwaukee|hanna|impac|merck', re.I)
-MEDICAO_NAO = re.compile(r'cozinha|culin[aá]ri|bolso|joia|j[oó]ias|corporal|bioimped|aqu[aá]rio|piscina|5 em 1|tds|espeto(?!.*certific)', re.I)
+MEDICAO_OK = re.compile(r'inmetro|certificad|\brbc\b|marte|shimadzu|\bbel\b|gehaka|urano|incoterm|instrutherm|akso|akrom|testo|milwaukee|hanna|impac|merck|kasvi|elitech|bomvink|peguepet', re.I)
+MEDICAO_NAO = re.compile(r'cozinha|culin[aá]ri|bolso|joia|j[oó]ias|corporal|bioimped|aqu[aá]rio|piscina|5 em 1|tds', re.I)
 UTENSILIO_NAO = re.compile(r'funil de cozinha|papel manteiga', re.I)
 
 
