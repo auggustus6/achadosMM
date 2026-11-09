@@ -66,3 +66,10 @@ Projeto Supabase **AchadosMM** (`gltxisnlyclsabtuhtjv`). O site usa só a chave 
   - `ranking_interesses`.
 - **Senha esquecida:** redefinir pelo painel do Supabase (Authentication → Users).
 - **Ligação com as ofertas:** `ofertas.js` tem o campo `tipo` (id de `tipos_produto`). Se a curadoria não informar, o `scripts/curadoria.py` deduz o tipo pelo título.
+
+## Copiar link e compartilhar
+Todo card de oferta (e o carrossel do topo) tem dois botões:
+- **Copiar link:** copia o link de afiliado (meli.la) da oferta.
+- **Compartilhar:** no celular abre o menu de compartilhar do aparelho; no computador abre o WhatsApp com a mensagem pronta.
+
+A mensagem segue o mesmo formato da postagem do grupo (tarefas "Curadoria AchadosMM" e "AchadosMM — envio ao grupo"), com a linha "🛒 Mais achados para a farmácia: https://achadosmm.vercel.app" antes da hashtag. Se mudar o formato do post, mude nos três lugares: `textoOferta()` no `index.html` e as duas tarefas.

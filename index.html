@@ -73,10 +73,11 @@ h1 em,h2 em{font-family:var(--body);font-style:italic;font-weight:500;color:var(
 .btn.green{background:var(--green);border-color:var(--green);color:#fff}
 .btn.green:hover{background:var(--green-d)}
 .btn.ghost:hover{background:#fff}
-.hero-r{background:linear-gradient(160deg,#E9E3CF 0%,#DCE9DF 100%);padding:32px;display:flex;align-items:center;justify-content:center;position:relative;min-height:360px}
+.hero-r{background:linear-gradient(160deg,#E9E3CF 0%,#DCE9DF 100%);padding:32px 32px 60px;display:flex;align-items:center;justify-content:center;position:relative;min-height:360px}
 .feat{background:#fff;border-radius:22px;box-shadow:var(--shadow);width:100%;max-width:340px;overflow:hidden}
 .feat .thumb{aspect-ratio:16/10;border-radius:0}
-.feat-b{padding:18px 20px 20px}
+.feat-b{padding:18px 20px 18px}
+.feat .acts{margin-top:12px}
 .feat-b h3{font-family:var(--head);font-size:20px;line-height:1.15;margin:6px 0 10px;letter-spacing:-.015em}
 .dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 12px;font-size:12px;color:var(--ink2);box-shadow:var(--shadow)}
 .dots span{width:6px;height:6px;border-radius:50%;background:var(--line)}
@@ -447,6 +448,7 @@ const today = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm===HOJE && o.preco).
 const weekAgo = (()=>{ if(!HOJE) return ''; const d=new Date(HOJE+'T12:00:00'); d.setDate(d.getDate()-6); return d.toISOString().slice(0,10); })();
 const week = ALL.filter(o=>o.adicionadoEm && o.adicionadoEm>=weekAgo && o.preco);
 
+const acoes = o => `<div class="acts"><button class="act" type="button" data-copiar="${esc(o.id)}" aria-label="Copiar link da oferta">${svg('link')}<span class="l">Copiar link</span><span class="s">Copiar</span></button><button class="act" type="button" data-compartilhar="${esc(o.id)}" aria-label="Compartilhar oferta">${svg('share')}<span class="l">Compartilhar</span><span class="s">Enviar</span></button></div>`;
 function card(o){
   const c = catById[o.categoria]||{};
   const b = [];
@@ -474,7 +476,7 @@ function card(o){
       ${o.vendidos?`<p class="sold">${esc(o.vendidos)}</p>`:''}
       ${ship?`<p class="ship">${ship}</p>`:''}
       <div class="buy">${price}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">${o.preco?'Ver oferta':'Ver na loja'}</a></div>
-      <div class="acts"><button class="act" type="button" data-copiar="${esc(o.id)}" aria-label="Copiar link da oferta">${svg('link')}<span class="l">Copiar link</span><span class="s">Copiar</span></button><button class="act" type="button" data-compartilhar="${esc(o.id)}" aria-label="Compartilhar oferta">${svg('share')}<span class="l">Compartilhar</span><span class="s">Enviar</span></button></div>
+      ${acoes(o)}
       ${o.preco&&o.vistoEm?`<p class="seen">Preço visto em ${dm(o.vistoEm)}</p>`:''}
     </div>
   </article>`;
@@ -551,7 +553,7 @@ function startFeat(f){
     const el=document.getElementById('feat'); if(!el){clearInterval(featTimer);return;}
     el.innerHTML = `<a class="thumb" href="${esc(o.link)}" target="_blank" rel="noopener sponsored" style="background:${TINT[o.categoria]||'#EEE'}">${o.imagem?`<img src="${esc(o.imagem)}" alt="" onerror="this.style.visibility='hidden'">`:`<div class="ph">${svg(o.categoria)}<span>${esc(c.curto||'')}</span></div>`}${o.desconto>0?`<span class="off">-${o.desconto}% hoje</span>`:''}</a>
       <div class="feat-b"><span class="store ${storeCls(o.loja)}">${esc(o.loja)}</span><h3>${esc(o.titulo)}</h3>
-      <div class="buy">${o.precoDe&&o.precoDe>o.preco?`<div class="price"><s>${brl(o.precoDe)}</s><b>${brl(o.preco)}</b></div>`:`<div class="price"><b>${brl(o.preco)}</b></div>`}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">Ver oferta</a></div></div>`;
+      <div class="buy">${o.precoDe&&o.precoDe>o.preco?`<div class="price"><s>${brl(o.precoDe)}</s><b>${brl(o.preco)}</b></div>`:`<div class="price"><b>${brl(o.preco)}</b></div>`}<a class="go" href="${esc(o.link)}" target="_blank" rel="noopener sponsored">Ver oferta</a></div>${acoes(o)}</div>`;
     document.getElementById('fdots').innerHTML = `Oferta ${i+1} de ${f.length} ` + f.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('');
     i=(i+1)%f.length;
   };
@@ -808,13 +810,18 @@ document.addEventListener('click', (e) => {
   if (card && C.user && SB) { SB.from('cliques').insert({ user_id: C.user.id, oferta_id: card.dataset.oid, categoria: card.dataset.cat || null }).then(() => {}, () => {}); }
 });
 /* Copiar link e compartilhar a oferta (link de afiliado + texto no formato do grupo) */
+const SITE = location.protocol === 'https:' ? location.origin : 'https://achadosmm.vercel.app';
+const EMO = {laboratorio:'🧪',epi:'🧤',etiquetagem:'🏷️',estoque:'📦',escritorio:'🗂️',ti:'💻',atendimento:'🎧',expedicao:'🚚',copa:'☕'};
+/* Mesmo formato da postagem do grupo (tarefas Curadoria e Envio ao grupo) */
 function textoOferta(o) {
-  const l = [`🧪 *${o.titulo}*`];
-  if (o.preco) l.push(o.precoDe && o.precoDe > o.preco ? `💰 De ~${brl(o.precoDe)}~ por *${brl(o.preco)}*` : `💰 *${brl(o.preco)}*`);
-  if (o.porQueVale) l.push(`✅ Por que vale: ${o.porQueVale}`);
-  const envio = o.full ? '⚡ Full, chega rápido' : (o.freteGratis ? 'Frete grátis' : '');
-  if (envio) l.push(`🚚 ${envio}`);
-  l.push(`🔗 ${o.link}`, '', `Mais achados para a farmácia: ${location.origin}`, '#AchadosMM | by MandaManipular.com', '_Link de parceiro: você paga o mesmo preço._');
+  const l = [`${EMO[o.categoria] || '🧪'} *${o.titulo}*`, ''];
+  if (o.preco) l.push(o.precoDe && o.precoDe > o.preco ? `💰 De ~${brl(o.precoDe)}~ por *${brl(o.preco)}* (${o.desconto}% off)` : `💰 *${brl(o.preco)}*`);
+  else l.push('💰 Preço do dia no link (muda todo dia)');
+  if (o.porQueVale) l.push(`✅ Por que vale: ${o.porQueVale.replace(/[.!\s]*$/, '')}.`);
+  if (REC_ON[o.ciclo]) l.push(`🔁 Recompra ${o.ciclo.toLowerCase()}: hora de repor o estoque`);
+  if (o.seloTecnico) l.push('🔬 Uso técnico: confira as especificações no anúncio');
+  if (o.full) l.push('🚚 Full: chega rápido'); else if (o.freteGratis) l.push('🚚 Frete grátis');
+  l.push('', `🔗 ${o.link}`, '', `🛒 Mais achados para a farmácia: ${SITE}`, '#AchadosMM | by MandaManipular.com', '_Link de parceiro: você paga o mesmo preço._');
   return l.join('\n');
 }
 async function copiarTexto(t) {
@@ -829,6 +836,7 @@ const ehCelular = () => matchMedia('(pointer:coarse)').matches;
 document.addEventListener('click', async (e) => {
   const b = e.target.closest('[data-copiar],[data-compartilhar]'); if (!b) return;
   e.preventDefault();
+  if (b.closest('#feat')) clearInterval(featTimer);
   const id = b.dataset.copiar || b.dataset.compartilhar;
   const o = ALL.find(x => x.id === id); if (!o) return;
   if (b.dataset.copiar) {
