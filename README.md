@@ -45,9 +45,9 @@ Regra: `preco` e `precoDe` só com valor conferido na página no dia (`vistoEm`)
 - `grupoUrl`: link de convite da Comunidade de WhatsApp.
 - `whatsappPedidos`: número para pedidos de itens (ex.: `5517999999999`).
 
-## Quando tiver domínio
+## Domínio
 
-Trocar `og:image` no `index.html` para a URL absoluta, por exemplo `https://achados.mandamanipular.com/og.png`. O WhatsApp só mostra a prévia com URL absoluta.
+Feito em 09/11: `og:image`, `og:url` e `canonical` no `index.html` apontam para o domínio oficial https://achados.mandamanipular.com.br. O WhatsApp só mostra a prévia com URL absoluta.
 
 ## Conta da farmácia (Supabase)
 
@@ -72,4 +72,4 @@ Todo card de oferta (e o carrossel do topo) tem dois botões:
 - **Copiar link:** copia o link de afiliado (meli.la) da oferta.
 - **Compartilhar:** no celular abre o menu de compartilhar do aparelho; no computador abre o WhatsApp com a mensagem pronta.
 
-A mensagem segue o mesmo formato da postagem do grupo (tarefas "Curadoria AchadosMM" e "AchadosMM — envio ao grupo"), e termina com "🛒 Veja todas as ofertas do dia para a sua farmácia: https://achadosmm.vercel.app" e "#AchadosMM | by MandaManipular.com" (sem a frase "Link de parceiro", decisão de 09/11). Se mudar o formato do post, mude nos três lugares: `textoOferta()` no `index.html` e as duas tarefas.
+A mensagem segue o mesmo formato da postagem do grupo (tarefas "Curadoria AchadosMM" e "AchadosMM — envio ao grupo"), e termina com "🛒 Veja todas as ofertas do dia para a sua farmácia: https://achados.mandamanipular.com.br" e "#AchadosMM | by MandaManipular.com" (sem a frase "Link de parceiro", decisão de 09/11). Se mudar o formato do post, mude nos três lugares: `textoOferta()` no `index.html` e as duas tarefas.

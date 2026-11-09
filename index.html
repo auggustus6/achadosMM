@@ -9,7 +9,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="AchadosMM | Ofertas para farmácias de manipulação">
 <meta property="og:description" content="O que a farmácia usa todo dia, com desconto de verdade. Curadoria diária da MandaManipular.com.">
-<meta property="og:image" content="/og.png">
+<meta property="og:url" content="https://achados.mandamanipular.com.br/">
+<meta property="og:image" content="https://achados.mandamanipular.com.br/og.png">
+<link rel="canonical" href="https://achados.mandamanipular.com.br/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -810,7 +812,7 @@ document.addEventListener('click', (e) => {
   if (card && C.user && SB) { SB.from('cliques').insert({ user_id: C.user.id, oferta_id: card.dataset.oid, categoria: card.dataset.cat || null }).then(() => {}, () => {}); }
 });
 /* Copiar link e compartilhar a oferta (link de afiliado + texto no formato do grupo) */
-const SITE = location.protocol === 'https:' ? location.origin : 'https://achadosmm.vercel.app';
+const SITE = 'https://achados.mandamanipular.com.br';
 const EMO = {laboratorio:'🧪',epi:'🧤',etiquetagem:'🏷️',estoque:'📦',escritorio:'🗂️',ti:'💻',atendimento:'🎧',expedicao:'🚚',copa:'☕'};
 /* Mesmo formato da postagem do grupo (tarefas Curadoria e Envio ao grupo) */
 function textoOferta(o) {
