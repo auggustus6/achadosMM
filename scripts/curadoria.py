@@ -16,6 +16,9 @@ Regras aplicadas:
     (o card volta a "Confira o preço do dia na loja");
   - link precisa começar com https://; preco precisa ser número > 0;
   - categoria precisa existir em "categorias";
+  - instrumento de medição (balança, peso, termômetro, termo-higrômetro, pHmetro etc.) só entra
+    com Inmetro, certificado de calibração ou marca de laboratório no título; de cozinha, bolso,
+    joia ou aquário sai do site (ativo false) e aparece como ERRO;
   - imagem precisa ser a foto do anúncio (https://http2.mlstatic.com/...): item novo sem foto
     não entra, e o site só mostra itens com foto.
 
@@ -81,6 +84,29 @@ TIPOS_RE = [
     ('acessorio-moto', r'\bmoto\b|ba[uú] '), ('descartaveis-copa', r'copo descart|guardanapo|filtro de papel|filme pvc'),
     ('utensilios-copa', r'caneca|faqueiro|pote de vidro|sanduicheira|squeeze'),
 ]
+
+
+# Somos farmácia: instrumento de medição e controle só entra com Inmetro ou certificado
+# de calibração informado no anúncio, ou de marca de laboratório. Nunca de cozinha,
+# bolso, joia, aquário ou "5 em 1".
+TIPOS_MEDICAO = {'balanca-precisao', 'termo-higrometro', 'termometro-geladeira', 'phmetro', 'instrumentos-cq'}
+MEDICAO_OK = re.compile(r'inmetro|certificad|\brbc\b|marte|shimadzu|\bbel\b|gehaka|urano|incoterm|instrutherm|akso|akrom|testo|milwaukee|hanna|impac|merck', re.I)
+MEDICAO_NAO = re.compile(r'cozinha|culin[aá]ri|bolso|joia|j[oó]ias|corporal|bioimped|aqu[aá]rio|piscina|5 em 1|tds|espeto(?!.*certific)', re.I)
+UTENSILIO_NAO = re.compile(r'funil de cozinha|papel manteiga', re.I)
+
+
+def medicao_inadequada(o):
+    t = (o.get('titulo') or '') + ' ' + (o.get('marca') or '')
+    if UTENSILIO_NAO.search(t):
+        return 'utensílio de cozinha no lugar de material de laboratório'
+    if o.get('tipo') == 'mesa-balanca' or re.search(r'\blupa|mesa anti', t, re.I):
+        return ''
+    if o.get('tipo') in TIPOS_MEDICAO or o.get('seloTecnico') and re.search(r'balan|term[oô]m|higr|\bph|peso', t, re.I):
+        if MEDICAO_NAO.search(t):
+            return 'instrumento de medição de cozinha, bolso, joia ou aquário'
+        if not MEDICAO_OK.search(t):
+            return 'instrumento de medição sem Inmetro, certificado ou marca de laboratório no anúncio'
+    return ''
 
 
 def tipo_por_titulo(t):
@@ -189,6 +215,10 @@ def main():
             o['tipo'] = tipo_por_titulo(o.get('titulo'))
         if n.get('destaque'):
             o['adicionadoEm'] = a.hoje
+        motivo = medicao_inadequada(o)
+        if motivo and o.get('ativo', True):
+            o['ativo'] = False
+            erros.append(f"fora do site ({motivo}): {o['titulo']}")
     # preço com mais de 7 dias deixa de ser mostrado
     limite = (dt.date.fromisoformat(a.hoje) - dt.timedelta(days=7)).isoformat()
     expirados = 0
