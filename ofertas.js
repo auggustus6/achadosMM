@@ -11543,6 +11543,29 @@ window.ACHADOS = {
       "adicionadoEm": "2026-11-09",
       "vistoEm": "2026-11-09",
       "ativo": true
+    },
+    {
+      "id": "all-in-one-15-6-touch-com-porta-serial-i",
+      "titulo": "All in One 15,6\" touch com porta serial, i5 e SSD 128 GB",
+      "marca": "Grasep",
+      "categoria": "ti",
+      "loja": "Mercado Livre",
+      "link": "https://meli.la/2DBaxHY",
+      "preco": 5299,
+      "precoDe": null,
+      "vendidos": "+1000 vendidos",
+      "vendidosNum": 1000,
+      "porQueVale": "Tela touch e porta serial (COM) para ligar a balança do balcão direto, sem adaptador",
+      "tipo": "computador",
+      "ciclo": "",
+      "mlb": "5534818105",
+      "seloTecnico": false,
+      "full": true,
+      "freteGratis": false,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_757922-MLB119412850092_112026-F.jpg",
+      "adicionadoEm": "2026-11-09",
+      "vistoEm": "2026-11-09",
+      "ativo": true
     }
   ]
 };

@@ -615,6 +615,8 @@ function route(){
   const h=(location.hash||'').slice(1);
   const qv=document.getElementById('q').value.trim();
   if(qv && !h){ searchView(qv); return; }
+  if(h.startsWith('i=')){ const o=ALL.find(x=>x.id===decodeURIComponent(h.slice(2)));
+    if(o){ renderTabs(''); listView('Oferta',esc(o.titulo),(catById[o.categoria]||{}).nome||'Curadoria',[o]); window.scrollTo(0,0); return; } }
   renderTabs(h && !['grupo','ofertas','minha-farmacia'].includes(h) ? h : '');
   if(catById[h]){ const c=catById[h]; const l=ALL.filter(o=>o.categoria===h); listView('Categoria',esc(c.nome),`${l.length} ${l.length===1?'item':'itens'} na curadoria`,l); window.scrollTo(0,0); return; }
   if(h==='minha-farmacia'){ contaView(); window.scrollTo(0,0); return; }
