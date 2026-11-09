@@ -96,6 +96,10 @@ h1 em,h2 em{font-family:var(--body);font-style:italic;font-weight:500;color:var(
 
 /* Sections */
 section.blk{margin-top:52px}
+section.blk.rep{margin-top:28px;background:var(--green-s);border:1.5px solid var(--green);border-radius:22px;padding:22px 22px 24px}
+section.blk.rep .rep-tag{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+section.blk.rep .rep-tag svg{width:14px;height:14px}
+@media (max-width:640px){section.blk.rep{padding:16px 12px 18px;border-radius:18px;margin-left:-4px;margin-right:-4px}}
 .sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
 h2{font-family:var(--head);font-weight:800;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.03em;line-height:1.05;margin:0}
 .sec-h p{margin:6px 0 0;color:var(--ink2);font-size:14px}
@@ -461,10 +465,10 @@ function card(o){
   </article>`;
 }
 const grid = (list, n) => `<div class="grid">${(n?list.slice(0,n):list).map(card).join('') || '<div class="empty">Nenhum item por aqui ainda.</div>'}</div>`;
-function sec(id, title, sub, list, n, moreHash){
+function sec(id, title, sub, list, n, moreHash, cls, tag){
   if(!list.length) return '';
-  return `<section class="blk" id="sec-${id}">
-    <div class="sec-h"><div><h2>${title}</h2>${sub?`<p>${sub}</p>`:''}</div>${moreHash&&list.length>n?`<a class="more" href="#${moreHash}">Ver todos →</a>`:''}</div>
+  return `<section class="blk${cls?' '+cls:''}" id="sec-${id}">
+    <div class="sec-h"><div>${tag?`<span class="rep-tag">${svg('bag')}${tag}</span>`:''}<h2>${title}</h2>${sub?`<p>${sub}</p>`:''}</div>${moreHash&&list.length>n?`<a class="more" href="#${moreHash}">Ver todos →</a>`:''}</div>
     ${grid(list,n)}
   </section>`;
 }
@@ -504,10 +508,12 @@ function home(){
       <div class="chips"><span class="chip mono"><i></i>Curadoria diária</span><span class="chip mono">Só para farmácia de manipulação</span></div>
       <h1>O que a farmácia usa todo dia, <em>com desconto</em> de verdade.</h1>
       <p class="lead">A MandaManipular.com garimpa no Mercado Livre, na Shopee e na Amazon o que a sua farmácia compra no dia a dia. Você escolhe e compra direto na loja.</p>
-      <div class="ctas"><a class="btn dark" href="#ofertas">Ver ofertas</a><a class="btn ghost" href="#grupo">Entrar no grupo</a></div>
+      <div class="ctas"><a class="btn dark" href="#recompra">Reposição do mês</a><a class="btn ghost" href="#ofertas">Ver ofertas</a><a class="btn ghost" href="#grupo">Entrar no grupo</a></div>
     </div>
     <div class="hero-r">${heroR}</div>
   </section>
+  <div id="ofertas"></div>
+  ${sec('rec','Reposição <em>do mês</em>','O que a farmácia compra sempre, com o melhor preço da curadoria. Garanta a recompra antes de faltar.',rec,8,'recompra','rep','Destaque')}
   <div class="values">
     <div class="value"><span class="ic">${svg('sun')}</span><div><b>Seleção diária</b><p>Lista nova a cada curadoria, com o preço do dia.</p></div></div>
     <div class="value"><span class="ic">${svg('bag')}</span><div><b>Compra direto na loja</b><p>Pagamento, frete e garantia do próprio marketplace.</p></div></div>
@@ -515,9 +521,7 @@ function home(){
     <div class="value"><span class="ic">${svg('tec')}</span><div><b>Selo Uso técnico</b><p>Destaque para itens ligados às boas práticas.</p></div></div>
   </div>
   <div id="paraVoce">${C.user ? '' : paraVoceBlock()}</div>
-  <div id="ofertas"></div>
   ${noPrices ? `<section class="blk"><div class="notice"><span class="ic">${svg('sun')}</span><div><b>As ofertas do dia entram aqui.</b><p>Assim que a curadoria conferir os preços, aparecem as seções Top ofertas, Mais vendidos e Destaques do dia. Enquanto isso, veja abaixo o catálogo do que a farmácia usa no dia a dia.</p></div></div></section>` : ''}
-  ${sec('rec','Reposição <em>do mês</em>','O que a farmácia compra sempre, com o melhor preço da curadoria. Garanta a recompra antes de faltar.',rec,8,'recompra')}
   ${sec('top','Top <em>ofertas</em>','Os maiores descontos da curadoria, conferidos na loja.',top,8,'top-ofertas')}
   ${sec('best','Mais vendidos','Produtos com milhares de vendas e boa avaliação.',best,4,'mais-vendidos')}
   ${sec('today','Destaques do dia',`Ofertas selecionadas em ${dm(HOJE)}.`,today,8,'')}
