@@ -1,6 +1,6 @@
 /* AchadosMM: base de ofertas. Gerado pela Curadoria AchadosMM (scripts/curadoria.py). Não editar à mão: o objeto abaixo é JSON puro. */
 window.ACHADOS = {
-  "atualizadoEm": "2026-11-09",
+  "atualizadoEm": "2026-11-10",
   "grupoUrl": "https://chat.whatsapp.com/ED2lVVSjJfKFyvl9zoFuoP",
   "whatsappPedidos": "",
   "categorias": [
@@ -11565,6 +11565,29 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_757922-MLB119412850092_112026-F.jpg",
       "adicionadoEm": "2026-11-09",
       "vistoEm": "2026-11-09",
+      "ativo": true
+    },
+    {
+      "id": "colher-forte-tamarozzi-500",
+      "titulo": "Colher descartável forte branca Tamarozzi, 500 unidades",
+      "marca": "Tamarozzi",
+      "categoria": "laboratorio",
+      "loja": "Mercado Livre",
+      "link": "https://meli.la/2mvVp7k",
+      "preco": 126.25,
+      "precoDe": 132.9,
+      "vendidos": "+50 vendidos",
+      "vendidosNum": 50,
+      "porQueVale": "Colher reforçada, uma por pesagem, sem risco de contaminação cruzada",
+      "tipo": "colher-descartavel",
+      "ciclo": "Mensal",
+      "mlb": "3359037677",
+      "seloTecnico": false,
+      "full": true,
+      "freteGratis": true,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_933029-MLB70171948489_062023-F.jpg",
+      "adicionadoEm": "2026-11-10",
+      "vistoEm": "2026-11-10",
       "ativo": true
     }
   ]
