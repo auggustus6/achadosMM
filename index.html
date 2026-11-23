@@ -815,17 +815,47 @@ document.addEventListener('click', (e) => {
 });
 /* Copiar link e compartilhar a oferta (link de afiliado + texto no formato do grupo) */
 const SITE = 'https://achados.mandamanipular.com.br';
-const EMO = {laboratorio:'🧪',epi:'🧤',etiquetagem:'🏷️',estoque:'📦',escritorio:'🗂️',ti:'💻',atendimento:'🎧',expedicao:'🚚',copa:'☕'};
-/* Mesmo formato da postagem do grupo (tarefas Curadoria e Envio ao grupo) */
+const EMO = {laboratorio:'🧪',epi:'🧤',etiquetagem:'🏷️',estoque:'📦',escritorio:'🗂️',ti:'💻',atendimento:'🛍️',expedicao:'📦',copa:'☕'};
+/* Mesmo formato da postagem do grupo: scripts/postagem.py (tarefas Curadoria e Envio ao grupo). Mudou lá, mude aqui. */
+const EMO_PROD = [[/bobina|cupom/,'🧾'],[/saco de lixo|lixeira/,'🗑️'],[/toner|cartucho|impressora/,'🖨️'],[/sulfite|papel a4|resma/,'📄'],
+  [/etiqueta|ribbon|rotulador|etiquetadora|fita compat/,'🏷️'],[/luva|m[aá]scara|touca|prop[eé]|avental|mangote|jaleco/,'🧤'],
+  [/[aá]lcool|sabonete|detergente|cloro|desinfet|limpa|esponja|palha de a[cç]o|pano|odorizante/,'🧴'],[/papel (toalha|higi)/,'🧻'],
+  [/pilha|bateria/,'🔋'],[/caf[eé]|copo|filtro de papel|a[cç][uú]car/,'☕'],[/caixa|envelope|pl[aá]stico bolha|sacola|fita adesiva|lacre/,'📦']];
+const UN_POST = {unidades:['cada','unidades'],unidade:['cada','unidade'],un:['cada','unidades'],rolos:['por rolo','rolos'],folhas:['por folha','folhas'],
+  pacotes:['por pacote','pacotes'],blocos:['por bloco','blocos'],pares:['por par','pares'],caixas:['por caixa','caixas'],resmas:['por resma','resmas'],
+  refis:['por refil','refis'],'galões':['por galão','galões'],tiras:['por tira','tiras'],panos:['por pano','panos'],sacos:['por saco','sacos']};
+const brlN = (v, c) => 'R$ ' + Number(v).toLocaleString('pt-BR',{minimumFractionDigits:c,maximumFractionDigits:c});
+function separaQtd(t) {
+  let m = t.match(/,\s*(?:(?:caixa|pacote|fardo|kit) com\s+)?(\d{1,3}(?:\.\d{3})*|\d+)\s+(unidades|unidade|un|rolos|folhas|pacotes|blocos|pares|caixas|resmas|refis|galões|tiras|panos|sacos)\b([^,]*)(,\s*[a-zà-ú ]+)?$/i);
+  if (m) { const [cada, nome] = UN_POST[m[2].toLowerCase()]; const r = m[3].trim();
+    return { nome: (t.slice(0, m.index) + (m[4] || '')).trim(), q: parseInt(m[1].replace(/\./g, '')), qtd: nome + (r ? ' ' + r : ''), cada }; }
+  m = t.match(/\s(\d+(?:[.,]\d+)?)\s*(L|litros)\s*$/i);
+  if (m) return { nome: t, q: parseFloat(m[1].replace(',', '.')), qtd: null, cada: 'o litro' };
+  return { nome: t, q: null, qtd: null, cada: null };
+}
+function porUnidade(preco, q, cada, t) {
+  if (!preco || !q || q <= 1) return null;
+  const u = preco / q;
+  if (cada === 'por folha' && q >= 500 && /sulfite|a4|resma|of[ií]cio/i.test(t)) return `${brl(u * 500)} a resma de 500`;
+  if (cada === 'cada' && q >= 1000 && u < 0.10 && /etiqueta/i.test(t)) return `${brl(u * 1000)} o milheiro`;
+  return `${brlN(u, u < 0.01 ? 3 : 2)} ${cada}`;
+}
 function textoOferta(o) {
-  const l = [`${EMO[o.categoria] || '🧪'} *${o.titulo}*`, ''];
-  if (o.preco) l.push(o.precoDe && o.precoDe > o.preco ? `💰 De ~${brl(o.precoDe)}~ por *${brl(o.preco)}* (${o.desconto}% off)` : `💰 *${brl(o.preco)}*`);
-  else l.push('💰 Preço do dia no link (muda todo dia)');
-  if (o.porQueVale) l.push(`✅ Por que vale: ${o.porQueVale.replace(/[.!\s]*$/, '')}.`);
-  if (REC_ON[o.ciclo]) l.push(`🔁 Recompra ${o.ciclo.toLowerCase()}: hora de repor o estoque`);
+  const titulo = (o.titulo || '').replace(/\s+/g, ' ').trim(), tl = titulo.toLowerCase();
+  const emo = (EMO_PROD.find(([rx]) => rx.test(tl)) || [])[1] || EMO[o.categoria] || '🛒';
+  const { nome, q, qtd, cada } = separaQtd(titulo);
+  const dias = o.vistoEm ? Math.round((new Date(hojeISO()) - new Date(o.vistoEm)) / 864e5) : null;
+  const estado = !o.preco || dias === null || dias < 0 || dias > 7 ? 'sem' : (dias === 0 ? 'hoje' : 'antes');
+  const l = [`${emo} *${nome}*`, ''];
+  if (estado === 'hoje') l.push(o.precoDe && o.precoDe > o.preco ? `💰 *${brl(o.preco)}*  (era ~${brl(o.precoDe)}~, ${Math.round((1 - o.preco / o.precoDe) * 100)}% off)` : `💰 *${brl(o.preco)}*`);
+  else if (estado === 'antes') l.push(`💰 *${brl(o.preco)}* em ${o.vistoEm.slice(8, 10)}/${o.vistoEm.slice(5, 7)} (confira o preço de hoje no link)`);
+  else l.push('💰 Confira o preço do dia no link');
+  if (q) { const pu = estado !== 'sem' ? porUnidade(o.preco, q, cada, titulo) : null;
+    if (qtd) l.push(`📦 ${q.toLocaleString('pt-BR')} ${qtd}` + (pu ? `: sai a *${pu}*` : '')); else if (pu) l.push(`📦 Sai a *${pu}*`); }
+  if (REC_ON[o.ciclo]) l.push(`🔁 Reposição ${o.ciclo.toLowerCase()}`);
   if (o.seloTecnico) l.push('🔬 Uso técnico: confira as especificações no anúncio');
-  if (o.full) l.push('🚚 Full: chega rápido'); else if (o.freteGratis) l.push('🚚 Frete grátis');
-  l.push('', `🔗 ${o.link}`, '', `🛒 Veja todas as ofertas do dia para a sua farmácia: ${SITE}`, '#AchadosMM | by MandaManipular.com');
+  if (o.full) l.push('🚚 Full: entrega rápida'); else if (o.freteGratis) l.push('🚚 Frete grátis');
+  l.push('', `👉 ${o.link}`, '', `🛒 Mais ofertas para a farmácia: ${SITE}`);
   return l.join('\n');
 }
 async function copiarTexto(t) {
