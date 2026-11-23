@@ -6,6 +6,7 @@ Uso:
     enviados.json = lista das linhas da Fila dos últimos 30 dias com status enviado/enviado-texto/enviando:
                     [{"data": "AAAA-MM-DD", "titulo": D, "tipo": S, "id": V, "categoria": C}, ...]
   Imprime o item escolhido (JSON do ofertas.js) ou "NENHUM".
+  Só escolhe item com preço conferido há no máximo 2 dias (--max-dias-preco); sem isso, "NENHUM".
 
 Regras (decisão do Erick em 23/11: nada de repetir produto):
   - candidatos: ativo, link meli.la, imagem, ciclo Quinzenal/Mensal/Bimestral/Trimestral;
@@ -39,7 +40,7 @@ def ler_ofertas(caminho):
     return json.loads(t[t.index('\nwindow.ACHADOS = ') + 18:t.rindex(';')])['ofertas']
 
 
-def escolher(ofertas, enviados, hoje, dias_familia=7):
+def escolher(ofertas, enviados, hoje, dias_familia=7, max_dias_preco=None):
     h = dt.date.fromisoformat(hoje)
 
     def recente(d, n):
@@ -60,6 +61,13 @@ def escolher(ofertas, enviados, hoje, dias_familia=7):
             continue
         if familia(o.get('titulo')) in fams or o.get('categoria') in cats_hoje:
             continue
+        if max_dias_preco is not None:
+            try:
+                dp = (h - dt.date.fromisoformat(o.get('vistoEm') or '')).days
+            except ValueError:
+                continue
+            if not o.get('preco') or not 0 <= dp <= max_dias_preco:
+                continue
         cand.append(o)
 
     def chave(o):
@@ -73,7 +81,7 @@ def escolher(ofertas, enviados, hoje, dias_familia=7):
         return (grupo, dias if grupo == 1 else 0, tem_qtd, CICLOS.index(o['ciclo']), -desc, -(o.get('vendidosNum') or 0))
     cand.sort(key=chave)
     if not cand and dias_familia > 4:
-        return escolher(ofertas, enviados, hoje, 4)
+        return escolher(ofertas, enviados, hoje, 4, max_dias_preco)
     return cand[0] if cand else None
 
 
@@ -82,8 +90,10 @@ def main():
     ap.add_argument('ofertas')
     ap.add_argument('enviados')
     ap.add_argument('--hoje', required=True)
+    ap.add_argument('--max-dias-preco', type=int, default=2,
+                    help='só escolhe item com preço conferido há no máximo N dias (decisão do Erick em 23/11: sem preço, não envia)')
     a = ap.parse_args()
-    o = escolher(ler_ofertas(a.ofertas), json.load(open(a.enviados, encoding='utf-8')), a.hoje)
+    o = escolher(ler_ofertas(a.ofertas), json.load(open(a.enviados, encoding='utf-8')), a.hoje, max_dias_preco=a.max_dias_preco)
     print(json.dumps(o, ensure_ascii=False) if o else 'NENHUM')
 
 
