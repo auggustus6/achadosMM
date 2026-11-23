@@ -830,7 +830,7 @@ function separaQtd(t) {
   if (m) { const [cada, nome] = UN_POST[m[2].toLowerCase()]; const r = m[3].trim();
     return { nome: (t.slice(0, m.index) + (m[4] || '')).trim(), q: parseInt(m[1].replace(/\./g, '')), qtd: nome + (r ? ' ' + r : ''), cada }; }
   m = t.match(/\s(\d+(?:[.,]\d+)?)\s*(L|litros)\s*$/i);
-  if (m) return { nome: t, q: parseFloat(m[1].replace(',', '.')), qtd: null, cada: 'o litro' };
+  if (m && /[aá]lcool|sabonete|detergente|desinfet|cloro|sanit[aá]ria|alvejante|limpa|[aá]gua|l[ií]quido|gel|amaciante|lustra|multiuso/i.test(t)) return { nome: t, q: parseFloat(m[1].replace(',', '.')), qtd: null, cada: 'o litro' };
   return { nome: t, q: null, qtd: null, cada: null };
 }
 function porUnidade(preco, q, cada, t) {

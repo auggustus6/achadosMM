@@ -37,6 +37,7 @@ UN = {'unidades': ('cada', 'unidades'), 'unidade': ('cada', 'unidade'), 'un': ('
       'resmas': ('por resma', 'resmas'), 'refis': ('por refil', 'refis'), 'galões': ('por galão', 'galões'),
       'tiras': ('por tira', 'tiras'), 'panos': ('por pano', 'panos'), 'sacos': ('por saco', 'sacos')}
 QTD_RE = re.compile(r',\s*(?:(?:caixa|pacote|fardo|kit) com\s+)?(\d{1,3}(?:\.\d{3})*|\d+)\s+(unidades|unidade|un|rolos|folhas|pacotes|blocos|pares|caixas|resmas|refis|galões|tiras|panos|sacos)\b([^,]*)(,\s*[a-zà-ú ]+)?$', re.I)
+LIQUIDO_RE = re.compile(r'[aá]lcool|sabonete|detergente|desinfet|cloro|sanit[aá]ria|alvejante|limpa|[aá]gua|l[ií]quido|gel|amaciante|lustra|multiuso', re.I)
 LITRO_RE = re.compile(r'\s(\d+(?:[.,]\d+)?)\s*(L|litros)\s*$', re.I)
 
 
@@ -71,7 +72,7 @@ def separa_qtd(titulo):
         cor = m.group(4) or ''
         return (titulo[:m.start()] + cor).strip(), q, nome + (' ' + resto if resto else ''), cada
     m = LITRO_RE.search(titulo)
-    if m:
+    if m and LIQUIDO_RE.search(titulo):
         q = float(m.group(1).replace(',', '.'))
         return titulo, q, None, 'o litro'
     return titulo, None, None, None
