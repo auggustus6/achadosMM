@@ -102,6 +102,31 @@ section.blk{margin-top:52px}
 section.blk.rep{margin-top:28px;background:var(--green-s);border:1.5px solid var(--green);border-radius:22px;padding:22px 22px 24px}
 section.blk.rep .rep-tag{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
 section.blk.rep .rep-tag svg{width:14px;height:14px}
+/* Alerta Achados (em breve) */
+.alerta{margin-top:28px;position:relative;overflow:hidden;border-radius:28px;background:var(--ink);color:#fff;padding:40px 44px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;isolation:isolate}
+.alerta:before{content:"";position:absolute;inset:0;background:radial-gradient(520px 260px at 0% 0%,rgba(12,106,57,.55),transparent 70%),radial-gradient(420px 240px at 100% 100%,rgba(183,121,31,.28),transparent 70%);z-index:-1}
+.alerta .sino{position:relative;width:84px;height:84px;border-radius:24px;background:var(--green);display:grid;place-items:center;flex-shrink:0;box-shadow:0 10px 30px -10px rgba(12,106,57,.9)}
+.alerta .sino svg{width:40px;height:40px;color:#fff;stroke-width:1.8;transform-origin:50% 8%;animation:sino 3.2s ease-in-out infinite}
+.alerta .sino:before,.alerta .sino:after{content:"";position:absolute;inset:0;border-radius:24px;border:2px solid rgba(191,227,203,.55);animation:onda 2.4s ease-out infinite}
+.alerta .sino:after{animation-delay:1.2s}
+@keyframes sino{0%,62%,100%{transform:rotate(0)}66%{transform:rotate(14deg)}72%{transform:rotate(-12deg)}78%{transform:rotate(8deg)}84%{transform:rotate(-5deg)}90%{transform:rotate(2deg)}}
+@keyframes onda{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.alerta .breve{display:inline-flex;align-items:center;gap:8px;background:rgba(247,235,211,.12);border:1px solid rgba(247,235,211,.35);color:#F7EBD3;border-radius:999px;padding:5px 12px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase}
+.alerta .breve i{width:7px;height:7px;border-radius:50%;background:#F2B544;box-shadow:0 0 0 0 rgba(242,181,68,.7);animation:pisca 1.6s ease-out infinite}
+@keyframes pisca{0%{box-shadow:0 0 0 0 rgba(242,181,68,.7)}100%{box-shadow:0 0 0 10px rgba(242,181,68,0)}}
+.alerta h2{color:#fff;margin:12px 0 0;font-size:clamp(28px,3.6vw,40px);line-height:1.02}
+.alerta h2 em{color:#BFE3CB}
+.alerta p{color:rgba(255,255,255,.8);margin:12px 0 0;font-size:16px;max-width:620px;line-height:1.5}
+.alerta .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.alerta .tags span{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:999px;padding:6px 12px;font-size:13px;color:#fff;font-weight:500}
+.alerta .foco{margin-top:16px;font-size:14px;color:#BFE3CB;font-weight:600}
+.alerta .lado{display:flex;flex-direction:column;align-items:flex-start;gap:10px;max-width:240px}
+.alerta .btn{background:#fff;color:var(--ink);border-color:#fff}
+.alerta .btn:hover{background:#BFE3CB;border-color:#BFE3CB}
+.alerta .lado small{font-size:13px;color:rgba(255,255,255,.7);line-height:1.4}
+@media (prefers-reduced-motion:reduce){.alerta .sino svg,.alerta .sino:before,.alerta .sino:after,.alerta .breve i{animation:none}}
+@media (max-width:980px){.alerta{grid-template-columns:auto 1fr}.alerta .lado{grid-column:1/-1;max-width:none;flex-direction:row;align-items:center;flex-wrap:wrap}}
+@media (max-width:680px){.alerta{grid-template-columns:1fr;padding:28px 22px;gap:18px;border-radius:22px;margin-top:20px}.alerta .sino{width:64px;height:64px;border-radius:18px}.alerta .sino:before,.alerta .sino:after{border-radius:18px}.alerta .sino svg{width:30px;height:30px}.alerta p{font-size:15px}.alerta .lado{flex-direction:column;align-items:stretch}.alerta .btn{justify-content:center}}
 @media (max-width:640px){section.blk.rep{padding:16px 12px 18px;border-radius:18px;margin-left:-4px;margin-right:-4px}}
 .sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
 h2{font-family:var(--head);font-weight:800;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.03em;line-height:1.05;margin:0}
@@ -424,6 +449,7 @@ const IC = {
   star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   bag:'<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
+  bell:'<path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
   link:'<path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/>',
   share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/>',
   ok:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
@@ -530,6 +556,7 @@ function home(){
     </div>
     <div class="hero-r">${heroR}</div>
   </section>
+  ${alertaBlock()}
   <div id="ofertas"></div>
   ${sec('rec','Reposição <em>do mês</em>','O que a farmácia compra sempre, com o melhor preço da curadoria. Garanta a recompra antes de faltar.',rec,8,'recompra','rep','Destaque')}
   <div id="paraVoce">${paraVoceBlock()}</div>
@@ -560,6 +587,24 @@ function startFeat(f){
     i=(i+1)%f.length;
   };
   draw(); if(f.length>1) featTimer=setInterval(draw,4500);
+}
+function alertaBlock(){
+  const url = D.grupoUrl || '#grupo';
+  const ext = D.grupoUrl ? ' target="_blank" rel="noopener"' : '';
+  return `<section class="alerta" id="alerta-achados" aria-label="Alerta Achados, em breve">
+    <div class="sino" aria-hidden="true">${svg('bell')}</div>
+    <div>
+      <span class="breve mono"><i></i>Aguarde · está chegando</span>
+      <h2>Alerta Achados: <em>direto do fornecedor.</em></h2>
+      <p>Oportunidades exclusivas de compra de matéria-prima e embalagens, direto do fornecedor e com direcionamentos especiais para a sua farmácia.</p>
+      <div class="tags"><span>Matéria-prima</span><span>Embalagens</span><span>Direto do fornecedor</span><span>Condições exclusivas</span></div>
+      <div class="foco">Compras inteligentes de reposição para uma farmácia mais saudável.</div>
+    </div>
+    <div class="lado">
+      <a class="btn"${ext} href="${esc(url)}">${svg('bell')}Quero receber o Alerta</a>
+      <small>Os primeiros alertas chegam no grupo do WhatsApp do AchadosMM.</small>
+    </div>
+  </section>`;
 }
 function grupoBlock(){
   const has = !!D.grupoUrl;
