@@ -1,16 +1,54 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/placar", "destination": "https://claude.ai/artifact/YKuK8Ai35v4F1ogjxykmsv", "permanent": false }
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "placar.mandamanipular.com.br"
+        }
+      ],
+      "destination": "/afiliados",
+      "permanent": false
+    },
+    {
+      "source": "/placar",
+      "destination": "/afiliados",
+      "permanent": false
+    }
   ],
   "headers": [
     {
+      "source": "/afiliados(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
       "source": "/ofertas.js",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/(.*)",
-      "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }]
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
     }
   ]
 }

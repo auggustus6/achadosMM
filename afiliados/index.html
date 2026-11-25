@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Placar · Afiliados Mercado Livre · AchadosMM</title>
+<link rel="icon" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F4EE;--ink:#0B130F;--muted:#0B130F99;--green:#0C6A39;--green-2:#0C6A3918;--line:#0B130F14;--card:#fff;--yellow:#FFE600;--bad:#B3261E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 48px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.top img{height:40px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:999px;white-space:nowrap}
+.chip b{color:var(--yellow);font-weight:500}
+.kicker{margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(30px,5vw,48px);line-height:1.04;letter-spacing:-.02em;margin-top:8px}
+.lead{margin-top:12px;font-size:18px;max-width:62ch;line-height:1.45}
+.lead b{font-variant-numeric:tabular-nums}
+.hero{margin-top:28px;background:var(--green);color:var(--bg);border-radius:28px;padding:28px 32px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;border:34px solid #ffffff14}
+.hero .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.hero .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(56px,11vw,104px);line-height:1;letter-spacing:-.04em;margin-top:8px;font-variant-numeric:tabular-nums}
+.hero .sub{margin-top:10px;font-size:16px;opacity:.95}
+.hero .sub b{color:var(--yellow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px 22px;min-width:0}
+.k .t{font-size:13px;color:var(--muted)}
+.k .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;margin-top:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.k .s{font-size:13px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
+.up{color:var(--green);font-weight:600}.down{color:var(--bad);font-weight:600}
+.box{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:14px}
+.box h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:20px}
+.note{font-size:13px;color:var(--muted);margin-top:4px}
+.chart{position:relative;margin-top:14px;min-height:240px}
+.chart svg{display:block;width:100%;height:auto}
+.chart text{font-family:"Instrument Sans",sans-serif;fill:#0B130F99;font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);border-radius:10px;padding:8px 10px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tip span{opacity:.75}
+.tw{overflow-x:auto;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child,th:last-child,td:last-child{text-align:left}
+th{font-size:12px;color:var(--muted);font-weight:600}
+td.g{color:var(--green);font-weight:700}
+details{margin-top:18px;font-size:13px;color:var(--muted)}
+details p{margin-top:6px;max-width:72ch;line-height:1.5}
+summary{cursor:pointer}
+.foot{margin-top:28px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+.foot a{color:var(--green);text-decoration:none}
+.skel{color:transparent!important;background:#0B130F12;border-radius:8px}
+.hero .skel{background:#ffffff22}
+.rowbtn{cursor:pointer}
+.rowbtn td:first-child::before{content:"▸";display:inline-block;width:14px;color:var(--green);transition:transform .15s}
+.rowbtn.open td:first-child::before{transform:rotate(90deg)}
+.rowbtn:hover td{background:#0C6A390a}
+tr.det td{background:#F6F4EE;padding:0}
+.sub{width:100%;font-size:13px}
+.sub td,.sub th{border-bottom:1px solid #0B130F0d;padding:7px 10px}
+.sub th:nth-child(1),.sub th:nth-child(2){text-align:left}
+.sub td.prod{white-space:normal;min-width:220px;max-width:420px;text-align:left}
+.sub .cat{display:block;font-size:11px;color:var(--muted)}
+.rank{list-style:none;margin-top:12px}
+.rank li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.rank .nm{font-size:14px;font-weight:600;min-width:0}
+.rank .meta{font-size:12px;color:var(--muted);grid-column:1}
+.rank .val{grid-row:1/3;grid-column:2;align-self:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:18px;color:var(--green);white-space:nowrap}
+.bar{grid-column:1/3;height:6px;border-radius:99px;background:#0C6A3918;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green);border-radius:99px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.two .box{margin-top:14px}
+.more{margin-top:10px;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:inherit;font-size:13px;color:var(--green);cursor:pointer}
+.err{margin-top:20px;padding:14px 18px;border-radius:14px;background:#B3261E14;color:var(--bad);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="/img/logo.png" alt="AchadosMM by MandaManipular.com">
+    <div class="chip">Afiliados <b>MELI</b> · conta MSI</div>
+  </div>
+
+  <p class="kicker">Placar do time · atualizado em <span id="upd">—</span></p>
+  <h1>Placar dos afiliados Mercado Livre</h1>
+  <p class="lead">Até <span id="ate">—</span>, os links do AchadosMM somaram <b id="lead-ganho">—</b> de ganho sobre <b id="lead-vendas">—</b> em vendas.</p>
+
+  <div id="erro" class="err" hidden>Não foi possível carregar os números agora. Tente de novo em alguns minutos.</div>
+
+  <section class="hero">
+    <div class="lbl">Ganho acumulado · desde 01/11/2026</div>
+    <div class="big skel" id="k-ganho">R$ 000,00</div>
+    <div class="sub">sobre <b id="k-vendas">—</b> em vendas · comissão de <span id="k-com">—</span></div>
+  </section>
+
+  <section class="grid">
+    <div class="k">
+      <div class="t">Pedidos pelos nossos links</div>
+      <div class="n skel" id="k-pedidos">00</div>
+      <div class="s"><span id="k-produtos">—</span> produtos · <span id="k-cliques">—</span> cliques</div>
+    </div>
+    <div class="k">
+      <div class="t">Ganho nos últimos 7 dias · <span id="k-7d-jan">—</span></div>
+      <div class="n skel" id="k-7d">R$ 000,00</div>
+      <div class="s"><span id="k-7d-var">—</span> contra os 7 dias anteriores (<span id="k-7d-ant">—</span>)</div>
+    </div>
+    <div class="k">
+      <div class="t">Saldo no Mercado Livre</div>
+      <div class="n skel" id="k-saldo">R$ 000,00</div>
+      <div class="s"><span id="k-saldo-sit">—</span> · liberado para saque: <span id="k-lib">—</span></div>
+    </div>
+    <div class="k">
+      <div class="t">Hoje · <span id="k-hoje-sit">—</span></div>
+      <div class="n skel" id="k-hoje">R$ 000,00</div>
+      <div class="s"><span id="k-hoje-ped">—</span> · <span id="k-hoje-cli">—</span> cliques</div>
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>Ganho por dia</h2>
+    <p class="note">Barra mais clara: dia ainda parcial, que o Mercado Livre fecha no dia seguinte.</p>
+    <div class="chart" id="chart"></div>
+  </section>
+
+  <div class="two">
+    <section class="box">
+      <h2>Produtos que mais renderam</h2>
+      <p class="note">Ganho somado por produto desde 01/11/2026.</p>
+      <ol class="rank" id="rank-prod"></ol>
+      <button class="more" id="mais-prod" hidden>Ver todos</button>
+    </section>
+    <section class="box">
+      <h2>Categorias</h2>
+      <p class="note">Categoria do Mercado Livre de cada venda.</p>
+      <ol class="rank" id="rank-cat"></ol>
+      <button class="more" id="mais-cat" hidden>Ver todas</button>
+    </section>
+  </div>
+
+  <section class="box">
+    <h2>Dias com movimento</h2>
+    <p class="note">Do mais recente para o mais antigo. Clique num dia com pedido para ver as vendas dele.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Dia</th><th>Cliques</th><th>Pedidos</th><th>Produtos</th><th>Ganho</th><th>Situação</th></tr></thead>
+        <tbody id="tabela"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details>
+    <summary>Como ler estes números</summary>
+    <p>Ganho é a comissão que o Mercado Livre calcula sobre cada venda feita por um link de afiliado do AchadosMM (conta MSI). Ele pode mudar até a venda ser aprovada.</p>
+    <p>Vendas é o valor das compras feitas a partir dos nossos links. Quem compra pode levar outros itens além do produto divulgado, e eles também contam.</p>
+    <p>Na lista de vendas, o valor de cada venda é o que o Mercado Livre mostra por item; somado, ele pode ficar um pouco acima do total de vendas do painel. O ganho por item soma exatamente o ganho do dia.</p>
+    <p>O saldo do mês fica em revisão e só fica disponível para saque depois do prazo que o Mercado Livre mostra. Os números vêm do painel de afiliados do Mercado Livre.</p>
+  </details>
+
+  <div class="foot">
+    <span>Uso interno do time MSI / MandaManipular</span>
+    <a href="https://achados.mandamanipular.com.br">achados.mandamanipular.com.br</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var SB_URL = 'https://gltxisnlyclsabtuhtjv.supabase.co';
+  var SB_KEY = 'sb_publishable_b3aJ012Vei4qeVbwjvAnPQ_AuKgzCHA';
+  var $ = function (id) { return document.getElementById(id); };
+  var brl = function (v) { return 'R$ ' + (+v || 0).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2}); };
+  var num = function (v) { return (+v || 0).toLocaleString('pt-BR'); };
+  var dm = function (iso) { var p = String(iso).slice(0, 10).split('-'); return p[2] + '/' + p[1]; };
+  var set = function (id, txt) { var el = $(id); if (el) { el.textContent = txt; el.classList.remove('skel'); } };
+
+  function render(d, atualizado) {
+    var diario = (d.diario || []).slice().sort(function (a, b) { return a.data < b.data ? -1 : 1; });
+    var per = d.periodos || [];
+    var s = d.saldo || {};
+    var sum = function (k) { return per.reduce(function (t, r) { return t + (+r[k] || 0); }, 0); };
+    var vendas = sum('vendas'), ganho = sum('ganho');
+    var ult = diario[diario.length - 1] || {};
+    var parcial = String(ult.situacao || '').indexOf('parcial') === 0;
+
+    var dt = new Date(atualizado);
+    set('upd', dt.toLocaleDateString('pt-BR', {timeZone: 'America/Sao_Paulo'}) + ' às ' + dt.toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit'}));
+    set('ate', ult.data ? dm(ult.data) + (parcial ? ' (' + String(ult.situacao).replace('parcial (', 'parcial, ').replace(')', '') + ')' : '') : '—');
+    set('lead-ganho', brl(ganho)); set('lead-vendas', brl(vendas));
+    set('k-ganho', brl(ganho)); set('k-vendas', brl(vendas));
+    set('k-com', vendas ? (ganho / vendas * 100).toLocaleString('pt-BR', {maximumFractionDigits: 1}) + '%' : '—');
+    set('k-pedidos', num(sum('pedidos'))); set('k-produtos', num(sum('produtos'))); set('k-cliques', num(sum('cliques')));
+
+    var n = diario.length;
+    var u7 = diario.slice(Math.max(0, n - 7)), a7 = diario.slice(Math.max(0, n - 14), Math.max(0, n - 7));
+    var g1 = u7.reduce(function (t, r) { return t + (+r.ganho || 0); }, 0), g0 = a7.reduce(function (t, r) { return t + (+r.ganho || 0); }, 0);
+    set('k-7d', brl(g1)); set('k-7d-ant', brl(g0));
+    set('k-7d-jan', u7.length ? dm(u7[0].data) + ' a ' + dm(u7[u7.length - 1].data) : '—');
+    var v = $('k-7d-var');
+    if (g0) { var p = Math.round((g1 - g0) / g0 * 100); v.textContent = (p > 0 ? '+' : '') + p + '%'; v.className = p >= 0 ? 'up' : 'down'; }
+    else v.textContent = 'sem base';
+
+    set('k-saldo', brl(s.em_revisao != null ? s.em_revisao : s.saldo_pendente));
+    set('k-saldo-sit', s.situacao || '—'); set('k-lib', brl(s.liberado));
+
+    var hoje = per.filter(function (r) { return String(r.situacao || '').indexOf('parcial') === 0; })[0];
+    if (hoje) { set('k-hoje', brl(hoje.ganho)); set('k-hoje-sit', hoje.periodo + ', ' + hoje.situacao); set('k-hoje-ped', num(hoje.pedidos) + (+hoje.pedidos === 1 ? ' pedido' : ' pedidos')); set('k-hoje-cli', num(hoje.cliques)); }
+    else { set('k-hoje', brl(ult.ganho)); set('k-hoje-sit', ult.data ? dm(ult.data) : '—'); set('k-hoje-ped', num(ult.pedidos) + (+ult.pedidos === 1 ? ' pedido' : ' pedidos')); set('k-hoje-cli', num(ult.cliques)); }
+
+    var vendasL = (d.vendas || []).slice();
+    var porDia = {};
+    vendasL.forEach(function (x) { (porDia[x.data] = porDia[x.data] || []).push(x); });
+    var tb = $('tabela'); tb.textContent = '';
+    diario.filter(function (r) { return (+r.cliques || 0) > 0 || (+r.pedidos || 0) > 0; }).reverse().forEach(function (r) {
+      var tr = document.createElement('tr');
+      [dm(r.data), num(r.cliques), num(r.pedidos), num(r.unidades), brl(r.ganho), r.situacao || ''].forEach(function (x, i) {
+        var td = document.createElement('td'); td.textContent = x; if (i === 4) td.className = 'g'; tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+      var lista = (porDia[r.data] || []).slice().sort(function (a, b) { return b.ganho - a.ganho; });
+      if (!lista.length) return;
+      tr.className = 'rowbtn'; tr.tabIndex = 0; tr.setAttribute('aria-expanded', 'false');
+      var det = document.createElement('tr'); det.className = 'det'; det.hidden = true;
+      var cell = document.createElement('td'); cell.colSpan = 6;
+      var wrap = document.createElement('div'); wrap.className = 'tw'; wrap.style.marginTop = '0';
+      var st = document.createElement('table'); st.className = 'sub';
+      var hd = document.createElement('tr');
+      ['Produto', 'Loja', 'Unid.', 'Valor', 'Comissão', 'Ganho'].forEach(function (x) { var th = document.createElement('th'); th.textContent = x; hd.appendChild(th); });
+      st.appendChild(hd);
+      lista.forEach(function (x) {
+        var l = document.createElement('tr');
+        var c0 = document.createElement('td'); c0.className = 'prod'; c0.textContent = x.produto;
+        var ct = document.createElement('span'); ct.className = 'cat'; ct.textContent = x.categoria + ' · ' + x.venda; c0.appendChild(ct);
+        l.appendChild(c0);
+        [x.loja, num(x.unidades), brl(x.valor), x.comissao_pct + '%', brl(x.ganho)].forEach(function (v, i) {
+          var td = document.createElement('td'); td.textContent = v; if (i === 4) td.className = 'g'; if (i === 0) td.style.textAlign = 'left'; l.appendChild(td);
+        });
+        st.appendChild(l);
+      });
+      wrap.appendChild(st); cell.appendChild(wrap); det.appendChild(cell); tb.appendChild(det);
+      var tog = function () { det.hidden = !det.hidden; tr.classList.toggle('open', !det.hidden); tr.setAttribute('aria-expanded', String(!det.hidden)); };
+      tr.addEventListener('click', tog);
+      tr.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tog(); } });
+    });
+
+    function ranking(el, chave, limite) {
+      var g = {};
+      vendasL.forEach(function (x) { var k = x[chave]; g[k] = g[k] || {nome: k, ganho: 0, valor: 0, unid: 0, vendas: 0}; g[k].ganho += +x.ganho || 0; g[k].valor += +x.valor || 0; g[k].unid += +x.unidades || 0; g[k].vendas += 1; });
+      var arr = Object.keys(g).map(function (k) { return g[k]; }).sort(function (a, b) { return b.ganho - a.ganho; });
+      var max = arr.length ? arr[0].ganho : 1;
+      var pintar = function (n) {
+        el.textContent = '';
+        arr.slice(0, n).forEach(function (it) {
+          var li = document.createElement('li');
+          var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = it.nome;
+          var mt = document.createElement('div'); mt.className = 'meta'; mt.textContent = num(it.unid) + ' unid. · ' + num(it.vendas) + (it.vendas === 1 ? ' venda' : ' vendas') + ' · ' + brl(it.valor) + ' vendidos';
+          var vl = document.createElement('div'); vl.className = 'val'; vl.textContent = brl(it.ganho);
+          var bar = document.createElement('div'); bar.className = 'bar'; var i = document.createElement('i'); i.style.width = Math.max(2, it.ganho / max * 100) + '%'; bar.appendChild(i);
+          li.appendChild(nm); li.appendChild(vl); li.appendChild(mt); li.appendChild(bar); el.appendChild(li);
+        });
+      };
+      pintar(limite || arr.length);
+      return {total: arr.length, pintar: pintar};
+    }
+    var rp = ranking($('rank-prod'), 'produto', 6);
+    var bt = $('mais-prod');
+    if (rp.total > 6) { bt.hidden = false; bt.textContent = 'Ver todos os ' + rp.total + ' produtos'; var aberto = false; bt.onclick = function () { aberto = !aberto; rp.pintar(aberto ? rp.total : 6); bt.textContent = aberto ? 'Ver menos' : 'Ver todos os ' + rp.total + ' produtos'; }; }
+    var rc = ranking($('rank-cat'), 'categoria', 6);
+    var bc = $('mais-cat');
+    if (rc.total > 6) { bc.hidden = false; bc.textContent = 'Ver todas as ' + rc.total + ' categorias'; var ab = false; bc.onclick = function () { ab = !ab; rc.pintar(ab ? rc.total : 6); bc.textContent = ab ? 'Ver menos' : 'Ver todas as ' + rc.total + ' categorias'; }; }
+
+    window.__placar = diario; desenhar();
+  }
+
+  function desenhar() {
+    var rows = window.__placar; var el = $('chart'); if (!rows || !el) return;
+    var W = Math.max(300, el.clientWidth), H = 240, m = {t: 22, r: 6, b: 26, l: 54};
+    var max = Math.max.apply(null, rows.map(function (r) { return +r.ganho || 0; }).concat([1]));
+    var stepY = Math.pow(10, Math.floor(Math.log10(max))) * (max / Math.pow(10, Math.floor(Math.log10(max))) > 5 ? 2 : 1);
+    var top = Math.ceil(max / stepY) * stepY;
+    var bw = (W - m.l - m.r) / rows.length, pad = Math.min(6, bw * .22);
+    var y = function (v) { return H - m.b - (v / top) * (H - m.t - m.b); };
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Ganho de afiliado por dia desde 01/11/2026');
+    var mk = function (tag, a) { var e = document.createElementNS(ns, tag); for (var k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+    for (var t = 0; t <= top + 1e-9; t += stepY) {
+      mk('line', {x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: '#0B130F14'});
+      var tx = mk('text', {x: m.l - 8, y: y(t) + 4, 'text-anchor': 'end'}); tx.textContent = 'R$ ' + t.toLocaleString('pt-BR');
+    }
+    var every = Math.max(1, Math.ceil(40 / bw));
+    var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true;
+    rows.forEach(function (r, i) {
+      var g = +r.ganho || 0, x = m.l + i * bw;
+      var parcial = String(r.situacao || '').indexOf('parcial') === 0;
+      mk('rect', {x: x + pad / 2, width: Math.max(1, bw - pad), y: y(g), height: Math.max(0, H - m.b - y(g)), rx: 3, fill: '#0C6A39', opacity: parcial ? .45 : 1});
+      if (g > 0 && bw >= 22) { var lt = mk('text', {x: x + bw / 2, y: y(g) - 5, 'text-anchor': 'middle'}); lt.textContent = Math.round(g).toLocaleString('pt-BR'); }
+      if (i % every === 0) { var xt = mk('text', {x: x + bw / 2, y: H - 8, 'text-anchor': 'middle'}); xt.textContent = dm(r.data); }
+      var hit = mk('rect', {x: x, width: bw, y: m.t, height: H - m.t - m.b, fill: 'transparent'});
+      hit.addEventListener('pointermove', function (ev) {
+        tip.textContent = '';
+        var a = document.createElement('div'); a.textContent = dm(r.data) + (parcial ? ' · parcial' : '');
+        var b = document.createElement('div'); b.textContent = 'Ganho ' + brl(g);
+        var c = document.createElement('span'); c.textContent = num(r.pedidos) + ' pedidos · ' + num(r.cliques) + ' cliques';
+        tip.appendChild(a); tip.appendChild(b); tip.appendChild(c); tip.hidden = false;
+        var box = el.getBoundingClientRect(), px = ev.clientX - box.left, tw = tip.offsetWidth;
+        tip.style.left = Math.min(Math.max(0, px - tw / 2), box.width - tw) + 'px';
+        tip.style.top = Math.max(0, ev.clientY - box.top - 70) + 'px';
+      });
+      hit.addEventListener('pointerleave', function () { tip.hidden = true; });
+    });
+    el.textContent = ''; el.appendChild(svg); el.appendChild(tip);
+  }
+
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(desenhar, 150); });
+
+  fetch(SB_URL + '/rest/v1/placar_afiliados?id=eq.1&select=dados,atualizado_em', {headers: {apikey: SB_KEY, Accept: 'application/json'}})
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (rows) { if (!rows.length) throw new Error('vazio'); render(rows[0].dados, rows[0].atualizado_em); })
+    .catch(function () { $('erro').hidden = false; });
+})();
+</script>
+</body>
+</html>
