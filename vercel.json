@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/placar", "destination": "https://claude.ai/artifact/YKuK8Ai35v4F1ogjxykmsv", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/ofertas.js",
