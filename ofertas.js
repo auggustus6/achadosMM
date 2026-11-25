@@ -734,7 +734,7 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_755958-MLB120419952735_102026-F.jpg",
       "adicionadoEm": "2026-10-31",
       "vistoEm": "2026-11-12",
-      "ativo": true,
+      "ativo": false,
       "tipo": "papelaria",
       "mlb": "3767933951",
       "ciclo": ""
@@ -9749,7 +9749,7 @@ window.ACHADOS = {
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_831877-MLA99547408964_122025-F.jpg",
       "adicionadoEm": "2026-11-03",
       "vistoEm": "2026-11-05",
-      "ativo": true
+      "ativo": false
     },
     {
       "id": "grampo-26-6-leonora-caixa-com-5-000-unid",
